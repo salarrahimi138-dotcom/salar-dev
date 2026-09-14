@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Salar.dev</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    </head>
+    <body>
+        {% include "components/navbar.html" %}
+        {% block content %}
+
+        {% endblock %}
+        {% include "components/footer.html" %}
+    </body>
+</html>
