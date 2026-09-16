@@ -1,6 +1,24 @@
 <h1>My Projects</h1>
+<form method= "get">
+    <input type="text" name="q" placeholder="Search projects">
+    <button type="submit">Search</button>
+</form>
+<h3>Categories</h3>
+
+{% for category in categories %}
+    <p>
+        <a href="?category={{category.name}}">
+        {{category.name}}
+        </a>
+    </p>
+{% endfor %}
+        
 {% for project in projects %}
-    <h2>{{ project.title }}</h2>
+    <h2>
+        <a href="{% url 'projects_view' project.slug  %}">
+            {{ project.title }}
+        </a>
+    </h2>
     <p>{{ project.short_description }}</p>
     <p>Category: {{ project.category }}</p>
     <p>Technologies:</p>

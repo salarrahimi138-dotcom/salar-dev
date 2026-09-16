@@ -13,6 +13,7 @@ class Technology(models.Model):
 class Project(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
+    slug = models.SlugField(unique=True , blank=True)
     short_description = models.TextField(max_length=300)
     description = models.TextField()
     technologies = models.ManyToManyField(Technology)
