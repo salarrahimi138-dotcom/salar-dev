@@ -3,5 +3,22 @@
 {% block content %}
 
 <h1>Welcome To Salar.dev</h1>
+<h2>Featured Projects</h2>
+
+{% for project in projects %}
+    <h3>
+     <a href="{% url 'projects_view' project.slug  %}">
+            {{ project.title }}
+        </a>
+    </h3>
+    <p>{{ project.short_description }}</p>
+    <p>Category: {{ project.category }}</p>
+    <p>Technologies:</p>
+     <ul>
+        {% for tech in project.technologies.all %}
+            <li>{{ tech.name }}</li>
+        {% endfor %}
+    </ul>
+{% endfor %}
 
 {% endblock %}

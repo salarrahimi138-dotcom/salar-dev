@@ -5,7 +5,11 @@ from .models import Project ,Category
 from django.db.models import Q
 
 def home(request): 
-    return render(request , "core/home.html")
+    
+    projects=Project.objects.filter(
+      featured=True
+    )
+    return render(request , "core/home.html" , {"projects":projects})
 
 
 def projects(request):
@@ -32,3 +36,7 @@ def projects(request):
 def projects_view( request , slug):
     project=get_object_or_404(Project , slug=slug)
     return render(request , "core/projects_view.html" , {"project":project} )
+
+
+def about(request):
+    return render(request , "core/about.html")
