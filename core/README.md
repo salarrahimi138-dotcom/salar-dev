@@ -20,6 +20,8 @@ The project includes a structured database for managing portfolio projects, cate
 
 The application uses Django models and relationships to organize project information and Django views and templates to dynamically display the content.
 
+The project is being developed incrementally, with each feature implemented, tested, and committed before moving to the next stage.
+
 Future development will expand the platform with additional sections such as authentication, content management, learning journey, blog/notes, JavaScript functionality, responsive design, and deployment.
 
 ---
@@ -79,15 +81,16 @@ Completed:
 * Connected views with templates.
 * Created the homepage.
 * Added the static file structure.
+* Created the base template structure.
 * Prepared the foundation for future frontend development.
 
 ---
 
-## Day 3 — Projects Backend
+# Day 3 — Projects Backend
 
 Completed:
 
-### Database Models
+## Database Models
 
 Created the following models:
 
@@ -126,7 +129,9 @@ Fields:
 * `created_at`
 * `updated_at`
 
-### Database Relationships
+---
+
+## Database Relationships
 
 Implemented:
 
@@ -138,7 +143,9 @@ Using:
 * `ForeignKey`
 * `ManyToManyField`
 
-### Project Slugs
+---
+
+## Project Slugs
 
 Added a unique slug field to projects to create clean and readable project detail URLs.
 
@@ -146,30 +153,17 @@ Example:
 
 ```text
 /projects/salar-dev/
-```
 
-### Django Admin
-
-Configured the Django Admin panel for project management.
-
-The Project admin includes:
-
-* Project title
-* Category
-* Featured status
-* Creation date
-
-This allows portfolio content to be managed through Django's built-in administration system.
-
----
 
 # Day 4 — Projects Frontend and Filtering
 
 Completed:
 
-### Projects List
+## Projects Frontend
 
-Created a dedicated projects page displaying:
+Created the projects list page and connected it with the database.
+
+The projects page displays:
 
 * Project title
 * Short description
@@ -178,14 +172,16 @@ Created a dedicated projects page displaying:
 * GitHub link
 * Demo link
 
-### Project Detail Page
+---
 
-Created individual project pages using the project's unique slug.
+## Project Detail Page
+
+Created individual project pages using project slugs.
 
 The detail page displays:
 
 * Project title
-* Project image
+* Image
 * Short description
 * Full description
 * Category
@@ -193,144 +189,62 @@ The detail page displays:
 * GitHub link
 * Demo link
 
-Optional fields such as the image, GitHub URL, and Demo URL are displayed only when they exist.
+---
 
-### Search
+## Search and Filtering
 
-Implemented project search using Django QuerySets and `Q` objects.
+Implemented project search and category filtering.
 
-Users can search projects by:
+Features:
 
-* Title
+* Search projects by title, short description, and description
+* Case-insensitive search
+* Persian text search support
+* Filter projects by category
+* Combine search and category filters
+
+Search and filtering are implemented using Django ORM and `Q` objects.
+
+
+# Day 5 — Home and About Pages
+
+Completed:
+
+## About Page
+
+Created the About page and connected it to the website structure.
+
+Implemented:
+
+* About view
+* About URL route
+* About template
+* Base template inheritance
+
+---
+
+## Dynamic Homepage
+
+Converted the homepage from a static page into a dynamic page.
+
+Implemented:
+
+* Loading featured projects from the database
+* Displaying projects dynamically on the homepage
+* Connecting Django views with templates
+
+---
+
+## Featured Projects Section
+
+Added a featured projects section to the homepage.
+
+Displayed information:
+
+* Project title
+* Project link
 * Short description
-* Full description
+* Category
+* Technologies
 
-The search uses case-insensitive matching.
-
-Search functionality was tested successfully, including Persian text.
-
-### Category Filter
-
-Implemented dynamic category filtering.
-
-Categories are loaded directly from the database and users can filter projects by category.
-
-The category filter uses:
-
-```python
-category__name__iexact
-```
-
-which allows case-insensitive category matching.
-
-### Combined Filtering
-
-Search and category filtering can be used together.
-
-For example:
-
-```text
-/projects/?category=Python%20Projects&q=Python
-```
-
-The filters are applied to the same QuerySet, allowing users to narrow down project results.
-
-### Empty Search Results
-
-The application correctly handles searches that do not match any project.
-
----
-
-# Current Status
-
-The core Projects system is currently implemented and tested.
-
-Completed functionality:
-
-* Django project setup
-* Core application
-* Template structure
-* Static structure
-* Project database models
-* Category model
-* Technology model
-* Project model
-* Database relationships
-* Django Admin management
-* Project slugs
-* Project list page
-* Project detail page
-* Project search
-* Persian search support
-* Category filtering
-* Combined search and category filtering
-* Empty search result handling
-
-The project is currently being developed incrementally as part of the CS50W Capstone process.
-
----
-
-# Planned Features
-
-The following features are planned for the next development stages:
-
-* About Me section
-* Skills section
-* Learning Journey
-* Certificates section
-* Blog / Notes
-* Tools section
-* Authentication
-* Private dashboard
-* Content management
-* JavaScript-based dynamic features
-* Responsive frontend design
-* Advanced styling and UI improvements
-* Automated testing
-* GitHub integration
-* Deployment
-
----
-
-# Installation
-
-Installation and deployment instructions will be added after the development phase is completed.
-
-For development, the project uses a Python virtual environment and Django.
-
----
-
-# Development
-
-The project is being developed incrementally, with each major stage tested before moving to the next stage.
-
-The development process includes:
-
-1. Backend development
-2. Database design
-3. Django views and URLs
-4. Template development
-5. Feature testing
-6. JavaScript functionality
-7. Frontend styling
-8. Responsive design
-9. Final testing
-10. Deployment
-
----
-
-# Future Goals
-
-The long-term goal of Salar.dev is to become a complete personal developer hub where projects, technical skills, certificates, learning progress, notes, and other professional work can be organized in one place.
-
-The current version focuses on building a strong and maintainable foundation before adding more advanced features.
-
----
-
-# Author
-
-**Salar**
-
-Computer Engineering Student
-
-CS50 Web Programming with Python and JavaScript
+Featured projects are loaded dynamically using Django ORM.
