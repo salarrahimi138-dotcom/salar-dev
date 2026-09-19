@@ -1,6 +1,6 @@
 from django.shortcuts import render , get_object_or_404
 
-from .models import Project ,Category
+from .models import Project ,Category ,Skill
 
 from django.db.models import Q
 
@@ -40,3 +40,11 @@ def projects_view( request , slug):
 
 def about(request):
     return render(request , "core/about.html")
+
+def view_skill(request):
+      skills = Skill.objects.all().order_by("name")
+      return render(request ,"core/skills.html" , {"skills":skills})
+  
+  
+def learning(request):
+    return render(request , "core/learning.html")

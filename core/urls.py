@@ -9,5 +9,10 @@ urlpatterns=[
     path("projects/" , views.projects , name="projects"),
     
     path("projects/<slug:slug>/" , views.projects_view , name="projects_view") ,
-    path("about/" , views.about , name="about")
+    
+    path("about/" , views.about , name="about"),
+    
+    path("skills/" ,views.view_skill , name="skills" ),
+    
+    path("learning/" , views.learning , name="learning")
 ]

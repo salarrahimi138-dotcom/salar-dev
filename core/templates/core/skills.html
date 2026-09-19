@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+{% for skill in skills %}
+    <h3>{{skill.name}}</h3>
+    <p>Category: {{skill.category.name}}</p>
+    <p>Proficiency: {{ skill.proficiency }}%</p>
+
+   
+{% endfor%}
+
+
+{% endblock %}

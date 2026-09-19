@@ -6,10 +6,15 @@ class Category(models.Model):
         return self.name
 
 class Technology(models.Model):
-    name=models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
     def __str__(self):
         return self.name
-
+    
+class SkillCategory(models.Model):
+    name = models.CharField(max_length=50)
+    def __str__(self):
+        return self.name
+    
 class Project(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
@@ -25,3 +30,11 @@ class Project(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     def __str__(self):
         return self.title
+    
+    
+class Skill(models.Model):
+    name = models.CharField(max_length=50)
+    category = models.ForeignKey(SkillCategory , on_delete=models.CASCADE)
+    proficiency = models.PositiveIntegerField()
+    def __str__(self):
+        return self.name
