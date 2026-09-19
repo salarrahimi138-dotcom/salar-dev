@@ -151,7 +151,7 @@ Added a unique slug field to projects to create clean and readable project detai
 
 Example:
 
-```text
+
 /projects/salar-dev/
 
 
@@ -248,3 +248,86 @@ Displayed information:
 * Technologies
 
 Featured projects are loaded dynamically using Django ORM.
+
+---
+
+# Day 6 — Skills and Learning Journey
+
+Completed:
+
+## Skills System
+
+Created a structured skill management system for the developer portfolio.
+
+Implemented:
+
+* Skill categories
+* Individual skills
+* Skill proficiency levels
+* Dynamic skill display from the database
+
+---
+
+## Database Models
+
+Created the following models:
+
+### SkillCategory
+
+Used to organize skills into different groups.
+
+Examples:
+
+* Backend
+* Frontend
+* Database
+* Tools
+
+Fields:
+
+* `name`
+
+---
+
+### Skill
+
+Stores technical skills and their proficiency levels.
+
+Fields:
+
+* `name`
+* `category`
+* `proficiency`
+
+Database relationship:
+
+* One SkillCategory can contain multiple Skills.
+* Each Skill belongs to one SkillCategory.
+
+Using:
+
+* `ForeignKey`
+
+---
+
+## Skills Admin Management
+
+Added Skills and Skill Categories to Django Admin.
+
+Implemented:
+
+* Creating skill categories
+* Adding skills
+* Managing proficiency levels
+* Managing portfolio skills through Django Admin
+
+---
+
+## Skills Page
+
+Created a dynamic skills page.
+
+Route:
+
+```text
+/skills/
