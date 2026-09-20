@@ -38,3 +38,22 @@ class Skill(models.Model):
     proficiency = models.PositiveIntegerField()
     def __str__(self):
         return self.name
+
+
+class LearningJourney(models.Model):
+    title = models.CharField(max_length=50)
+    skill = models.ForeignKey(Skill, on_delete=models.CASCADE)
+    route_title = models.TextField(max_length=200)
+    provider = models.CharField(max_length=50)
+    STATUS_CHOICES = [
+        ("completed", "Completed"),
+        ("progress", "In Progress"),
+        ("planned", "Planned"),
+    ]
+    status = models.CharField(max_length=20 , choices=STATUS_CHOICES , default="planned")
+    explanation = models.TextField(max_length=500 , blank=True)
+    display_order = models.PositiveIntegerField(default=0)
+    
+    def __str__(self):
+        return self.title
+    

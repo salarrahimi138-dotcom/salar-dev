@@ -3,23 +3,18 @@
 {% block content %}
 
 <h1>Learning Journey</h1>
-
 <div>
+{% for item in learning %}
 
-    <h3>CS50P - Introduction to Programming with Python</h3>
-    <p>Status: Completed </p>
 
-    <h3>CS50 Web Programming with Python and JavaScript</h3>
-    <p>Status: In Progress </p>
+    <h3>{{ item.title }}</h3>
+    <p>Skill Name:{{ item.skill.name }}</p>
+    <p>Status:{{ item.status }} </p>
+    <p>Provider:{{ item.provider }} </p>
+    <p>{{ item.route_title }}</p>
+    <p>{{ item.explanation }}</p>
 
-    <h3>CS50 Cybersecurity</h3>
-    <p>Status: In Progress </p>
-
-    <h3>NASA Open Science</h3>
-    <p>Status: Completed </p>
-
-    <h3>Personal Projects</h3>
-    <p>Status: Continuous Learning </p>
+{% endfor %}
 
 </div>
 
