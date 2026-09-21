@@ -1,6 +1,6 @@
 from django.shortcuts import render , get_object_or_404
 
-from .models import Project ,Category ,Skill , LearningJourney
+from .models import Project ,Category ,Skill , LearningJourney , Certificate
 
 from django.db.models import Q
 
@@ -49,3 +49,8 @@ def view_skill(request):
 def learning(request):
     learning = LearningJourney.objects.all().order_by("display_order")
     return render(request , "core/learning.html" , {"learning":learning})
+
+
+def certificates(request):
+    certificates = Certificate.objects.all().order_by("display_order")
+    return render(request , "core/certificates.html" , {"certificates":certificates})

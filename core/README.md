@@ -331,3 +331,179 @@ Route:
 
 ```text
 /skills/
+
+---
+
+# Day 7 — Learning Journey and Certificates System
+
+Completed:
+
+## Learning Journey System
+
+Created a structured system to display the developer learning path and educational progress.
+
+Implemented:
+
+* Learning journey database model
+* Learning progress status management
+* Dynamic learning journey page
+* Django Admin management
+
+---
+
+## Database Model
+
+Created:
+
+### LearningJourney
+
+Used to store educational progress and learning milestones.
+
+Fields:
+
+* `title`
+* `skill`
+* `route_title`
+* `provider`
+* `status`
+* `explanation`
+* `display_order`
+
+---
+
+## Learning Journey Features
+
+Implemented:
+
+* Display learning courses and milestones dynamically
+* Show related skills
+* Display course provider
+* Display learning status:
+
+  * Completed
+  * In Progress
+  * Planned
+
+Learning items are ordered using:
+
+```python
+display_order
+```
+
+---
+
+# Day 8 — Certificates System and Portfolio Expansion
+
+Completed:
+
+## Certificates Management System
+
+Added a complete certificate management section to the developer portfolio.
+
+Implemented:
+
+* Certificate database model
+* Certificate management through Django Admin
+* Dynamic certificate display page
+* Certificate images support
+* External certificate links support
+
+---
+
+## Database Model
+
+Created:
+
+### Certificate
+
+Used to store professional certificates and achievements.
+
+Fields:
+
+* `title`
+* `provider`
+* `issue_date`
+* `image`
+* `description`
+* `certificate_url`
+* `display_order`
+
+---
+
+## Certificate Features
+
+Implemented:
+
+* Display certificate title
+* Display certificate provider
+* Display issue date
+* Display certificate description
+* Support certificate image upload
+* Support external certificate verification links
+
+---
+
+## Django Admin Improvements
+
+Updated Django Admin to manage:
+
+* Projects
+* Skills
+* Learning Journey
+* Certificates
+
+The admin panel now works as a content management system for updating portfolio information without modifying code.
+
+---
+
+## Template Integration
+
+Created dynamic templates for:
+
+* Learning Journey page
+* Certificates page
+
+Connected templates with Django views and database queries.
+
+---
+
+## Current Project Structure
+
+The portfolio currently includes:
+
+* Home page
+* About page
+* Projects section
+* Project search and filtering
+* Skills section
+* Learning Journey section
+* Certificates section
+
+---
+
+## Upcoming Development
+
+Future steps:
+
+* Connect all website sections through navigation links
+* Improve website security and increase application safety
+* Add authentication and private dashboard
+* Add content management improvements
+* Implement JavaScript interactive features
+* Add responsive professional UI design
+* Deploy the application online
+
+---
+
+## Security Improvements (Planned)
+
+Security enhancements will include:
+
+* Authentication protection
+* Permission management
+* Secure form handling
+* Input validation
+* Protection against common web vulnerabilities
+* Production security configuration
+
+---

@@ -1,6 +1,6 @@
 from django.contrib import admin 
 
-from .models import Category , Technology , Project , SkillCategory , Skill , LearningJourney
+from .models import Category , Technology , Project , SkillCategory , Skill , LearningJourney , Certificate
 
 
 
@@ -30,5 +30,14 @@ class LearningJourneyAdmin(admin.ModelAdmin):
             "display_order"
         )
     
+
+@admin.register(Certificate)
+class CertificateAdmin(admin.ModelAdmin):
+    list_display = (
+    "title",
+    "provider",
+    "issue_date",
+    "display_order",
+)
 
 

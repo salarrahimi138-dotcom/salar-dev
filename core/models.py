@@ -56,4 +56,15 @@ class LearningJourney(models.Model):
     
     def __str__(self):
         return self.title
+
+class Certificate(models.Model):
+     title = models.CharField(max_length=50)
+     provider = models.CharField(max_length=50)
+     issue_date = models.DateField()
+     image = models.ImageField(blank=True)
+     description = models.TextField(max_length=200)
+     certificate_url = models.URLField(blank=True)
+     display_order = models.PositiveIntegerField(default=0)
     
+     def __str__(self):
+        return self.title

@@ -14,5 +14,7 @@ urlpatterns=[
     
     path("skills/" ,views.view_skill , name="skills" ),
     
-    path("learning/" , views.learning , name="learning")
+    path("learning/" , views.learning , name="learning"),
+    
+    path("certificates/" , views.certificates, name="certificate")
 ]

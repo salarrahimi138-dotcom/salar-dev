@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Certificates</h1>
+
+<div>
+
+{% for certificate in certificates %}
+
+    <h3>{{ certificate.title }}</h3>
+
+    <p>Provider: {{ certificate.provider }}</p>
+
+    <p>Issue Date: {{ certificate.issue_date }}</p>
+
+    <p>{{ certificate.description }}</p>
+
+    {% if certificate.image %}
+        <img src="{{ certificate.image.url }}" alt="{{ certificate.title }}">
+    {% endif %}
+
+    {% if certificate.certificate_url %}
+        <a href="{{ certificate.certificate_url }}">
+            View Certificate
+        </a>
+    {% endif %}
+
+{% endfor %}
+
+</div>
+
+{% endblock %}
