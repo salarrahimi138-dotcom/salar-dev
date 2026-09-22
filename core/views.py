@@ -1,6 +1,6 @@
 from django.shortcuts import render , get_object_or_404
 
-from .models import Project ,Category ,Skill , LearningJourney , Certificate
+from .models import Project ,Category ,Skill , LearningJourney , Certificate , Post
 
 from django.db.models import Q
 
@@ -54,3 +54,16 @@ def learning(request):
 def certificates(request):
     certificates = Certificate.objects.all().order_by("display_order")
     return render(request , "core/certificates.html" , {"certificates":certificates})
+def blog(request):
+    
+    posts =  Post.objects.filter(
+        status="published"
+    ).order_by("-created_at")
+    return render(request , "core/blog.html" , {
+        "posts":posts ,
+        
+    })
+    
+def blog_detail(request , slug):
+    post  =get_object_or_404(Post, slug=slug)
+    return render(request , "core/blog_detail.html" ,{ "post":post} )

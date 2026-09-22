@@ -329,10 +329,6 @@ Created a dynamic skills page.
 
 Route:
 
-```text
-/skills/
-
----
 
 # Day 7 — Learning Journey and Certificates System
 
@@ -507,3 +503,133 @@ Security enhancements will include:
 * Production security configuration
 
 ---
+
+# Day 9 — Blog / Notes System
+
+Completed:
+
+## Blog Content Management System
+
+Created a dynamic blog and notes system for sharing development experiences, learning progress, and technical articles.
+
+Implemented:
+
+* Blog post database model
+* Blog categories
+* Tag management system
+* Post status management
+* Dynamic blog list page
+* Blog detail pages using slugs
+* Django Admin content management
+
+---
+
+## Database Models
+
+Created:
+
+### BlogCategory
+
+Used to organize blog posts into different topics.
+
+Examples:
+
+* Django
+* Python
+* Cyber Security
+* Web Development
+
+Fields:
+
+* `name`
+
+---
+
+### Tag
+
+Used to add multiple labels to blog posts.
+
+Examples:
+
+* Django
+* Python
+* CS50
+* Programming
+
+Fields:
+
+* `name`
+
+Database relationship:
+
+* One post can contain multiple tags.
+* One tag can be used by multiple posts.
+
+Using:
+
+* `ManyToManyField`
+
+---
+
+### Post
+
+Stores blog article information.
+
+Fields:
+
+* `title`
+* `author`
+* `category`
+* `tags`
+* `image`
+* `slug`
+* `content`
+* `status`
+* `created_at`
+* `updated_at`
+
+Database relationships:
+
+* Each post belongs to one blog category.
+* Each post can have multiple tags.
+* Each post has an author.
+
+Using:
+
+* `ForeignKey`
+* `ManyToManyField`
+
+---
+
+## Blog Features
+
+Implemented:
+
+* Display published blog posts dynamically
+* Create clean blog URLs using slugs
+* Blog list page
+* Individual blog detail pages
+* Display article author
+* Display categories
+* Display tags
+* Support article images
+* Show creation and update dates
+
+---
+
+## Blog Filtering and Status Management
+
+Implemented post status management:
+
+Available statuses:
+
+* Draft
+* Published
+* Archived
+
+Only published articles are displayed on the public blog page.
+
+Implemented using Django ORM filtering:
+
+```python
+Post.objects.filter(status="published")

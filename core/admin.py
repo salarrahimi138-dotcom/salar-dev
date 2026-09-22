@@ -1,6 +1,6 @@
 from django.contrib import admin 
 
-from .models import Category , Technology , Project , SkillCategory , Skill , LearningJourney , Certificate
+from .models import Category , Technology , Project , SkillCategory , Skill , LearningJourney , Certificate , Post , BlogCategory , Tag
 
 
 
@@ -39,5 +39,28 @@ class CertificateAdmin(admin.ModelAdmin):
     "issue_date",
     "display_order",
 )
+    
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    list_display = (
+        "title",
+        "author",
+        "category",
+        "status",
+        "created_at",
+    )
+    search_fields = (
+    "title",
+    "content",
+    )
+    list_filter = (
+    "status",
+    "category",
+    )
+    prepopulated_fields = {
+    "slug": ("title",)
+}
+admin.site.register(Tag)
+admin.site.register(BlogCategory)
 
 
