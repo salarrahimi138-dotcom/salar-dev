@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Dashboard</h1>
+
+<section>
+    <h2>Statistics</h2>
+
+    <div>
+        <p>Projects: {{ project_count }}</p>
+        <p>Skills: {{ skill_count }}</p>
+        <p>Certificates: {{ certificate_count }}</p>
+        <p>Posts: {{ post_count }}</p>
+    </div>
+</section>
+{% endblock %}

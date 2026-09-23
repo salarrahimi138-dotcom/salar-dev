@@ -65,5 +65,5 @@ def blog(request):
     })
     
 def blog_detail(request , slug):
-    post  =get_object_or_404(Post, slug=slug)
+    post = get_object_or_404(Post, slug=slug)
     return render(request , "core/blog_detail.html" ,{ "post":post} )

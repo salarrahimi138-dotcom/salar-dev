@@ -93,9 +93,9 @@ class Post(models.Model):
     slug = models.SlugField(unique=True , blank=True)
     content = models.TextField()
     STATUS_CHOICES = [
-    ("draft", "Draft"),
-    ("published", "Published"),
-    ("archived", "Archived"),
+        ("draft", "Draft"),
+        ("published", "Published"),
+        ("archived", "Archived"),
 ]
     status = models.CharField(
     max_length=20,
