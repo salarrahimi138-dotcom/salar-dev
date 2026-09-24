@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Manage Skills</h1>
+
+<a href="{% url 'dashboard_skill_create' %}">
+    Add New Skill
+</a>
+
+<hr>
+
+{% for skill in skills %}
+
+<section>
+
+    <h2>
+        {{ skill.name }}
+    </h2>
+
+    <p>
+        Category:
+        {{ skill.category }}
+    </p>
+
+    <p>
+        Proficiency:
+        {{ skill.proficiency }}
+    </p>
+     <a href="{% url 'dashboard_skill_update' skill.id %}">
+        Edit
+    </a>
+    <a href="{% url 'dashboard_skill_delete' skill.id %}">
+        Delete
+    </a>
+
+<hr>
+
+{% empty %}
+
+<p>
+    No skills found.
+</p>
+
+{% endfor %}
+
+{% endblock %}

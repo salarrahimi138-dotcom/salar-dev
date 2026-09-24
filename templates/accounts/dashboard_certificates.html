@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Manage Certificates</h1>
+
+<a href="#">
+    Add New Certificate
+</a>
+
+<hr>
+
+{% for certificate in certificates %}
+
+<section>
+
+    <h2>
+        {{ certificate.title }}
+    </h2>
+
+    <p>
+        Provider:
+        {{ certificate.provider }}
+    </p>
+
+    <p>
+        Issue Date:
+        {{ certificate.issue_date }}
+    </p>
+
+    <p>
+        Description:
+        {{ certificate.description }}
+    </p>
+
+    {% if certificate.certificate_url %}
+        <a href="{{ certificate.certificate_url }}">
+            View Certificate
+        </a>
+    {% endif %}
+
+</section>
+
+<hr>
+
+{% empty %}
+
+<p>
+    No certificates found.
+</p>
+
+{% endfor %}
+
+{% endblock %}

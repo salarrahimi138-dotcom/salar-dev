@@ -12,4 +12,15 @@
         <p>Posts: {{ post_count }}</p>
     </div>
 </section>
+<section>
+    <h2>Management</h2>
+
+    <div>
+        <a href="{% url 'dashboard_projects' %}">Manage Projects</a>
+        <a href="{% url 'dashboard_skills' %}">Manage Skills</a>
+        <a href="{% url 'dashboard_certificates' %}">Manage Certificates</a>
+        <a href="{% url 'dashboard_learning' %}">Manage Learning Journey</a>
+        <a href="{% url 'dashboard_posts' %}">Manage Blog Posts</a>
+    </div>
+</section>
 {% endblock %}

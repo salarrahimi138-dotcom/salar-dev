@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Delete Skill</h1>
+
+<p>
+    Are you sure you want to delete:
+    <strong>{{ skill.name }}</strong>?
+</p>
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    <button type="submit">
+        Delete
+    </button>
+
+</form>
+
+<br>
+
+<a href="{% url 'dashboard_skills' %}">
+    Cancel
+</a>
+
+{% endblock %}

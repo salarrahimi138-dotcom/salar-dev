@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Manage Projects</h1>
+<a href="#">
+    Add New Project
+</a>
+<hr>
+
+{% for project in projects %}
+
+<section>
+
+    <h2>
+        <a href="{% url 'projects_view' project.slug  %}">
+            {{ project.title }}
+        </a>
+    </h2>
+
+    <p>
+        {{ project.short_description }}
+    </p>
+
+    <p>
+        Category:
+        {{ project.category }}
+    </p>
+
+    <p>
+        Technologies:
+    </p>
+
+    <ul>
+        {% for tech in project.technologies.all %}
+            <li>{{ tech.name }}</li>
+        {% endfor %}
+    </ul>
+
+</section>
+
+<hr>
+
+{% empty %}
+
+<p>
+    No projects found.
+</p>
+
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Manage Learning Journey</h1>
+
+<a href="#">
+    Add New Learning Journey
+</a>
+
+<hr>
+
+{% for item in learning_journeys %}
+
+<section>
+
+    <h2>
+        {{ item.title }}
+    </h2>
+
+    <p>
+        Skill:
+        {{ item.skill }}
+    </p>
+
+    <p>
+        Route:
+        {{ item.route_title }}
+    </p>
+
+    <p>
+        Provider:
+        {{ item.provider }}
+    </p>
+
+    <p>
+        Status:
+        {{ item.get_status_display }}
+    </p>
+
+    <p>
+        {{ item.explanation }}
+    </p>
+
+</section>
+
+<hr>
+
+{% empty %}
+
+<p>
+    No learning journey found.
+</p>
+
+{% endfor %}
+
+{% endblock %}
