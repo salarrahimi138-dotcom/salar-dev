@@ -16,4 +16,7 @@ path("dashboard/posts/", views.dashboard_posts, name="dashboard_posts"),
 path("dashboard/skills/create/",views.dashboard_skill_create,name="dashboard_skill_create"),
 path("dashboard/skills/<int:id>/update/",views.dashboard_skill_update,name="dashboard_skill_update"),
 path("dashboard/skills/<int:id>/delete/",views.dashboard_skill_delete,name="dashboard_skill_delete"),
+path("dashboard/projects/create/",views.dashboard_project_create,name="dashboard_project_create"),
+path("dashboard/projects/<int:id>/update/",views.dashboard_project_update,name="dashboard_project_update"),
+path("dashboard/projects/<int:id>/delete/",views.dashboard_project_delete,name="dashboard_project_delete"),
 ]

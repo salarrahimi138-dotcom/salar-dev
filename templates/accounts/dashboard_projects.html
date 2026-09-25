@@ -3,7 +3,7 @@
 {% block content %}
 
 <h1>Manage Projects</h1>
-<a href="#">
+<a href="{% url 'dashboard_project_create' %}">
     Add New Project
 </a>
 <hr>
@@ -37,9 +37,20 @@
         {% endfor %}
     </ul>
 
+    <a href="{% url 'dashboard_project_update' project.id %}">
+        Edit
+    </a>
+
+    <a href="{% url 'dashboard_project_delete' project.id %}">
+        Delete
+    </a>
+
 </section>
 
 <hr>
+
+
+
 
 {% empty %}
 
@@ -48,5 +59,6 @@
 </p>
 
 {% endfor %}
+
 
 {% endblock %}

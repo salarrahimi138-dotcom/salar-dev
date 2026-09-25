@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
-from core.models import Skill
+from core.models import Skill  , Project
 
 
 class LoginForm(AuthenticationForm):
@@ -15,4 +15,23 @@ class SkillForm(forms.ModelForm):
             "name",
             "category",
             "proficiency",
+        ]
+        
+        
+class ProjectForm(forms.ModelForm):
+
+    class Meta:
+        model = Project
+        fields = [
+                 
+                "title",
+                "category" ,
+                "slug" , 
+                "short_description" ,
+                "description" ,
+                "technologies" ,
+                "github_url" , 
+                "demo_url" ,
+                "image" ,
+                "featured"
         ]

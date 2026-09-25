@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render , redirect , get_object_or_404
 from django.contrib.auth import login
 from django.contrib.auth import logout
-from .forms import LoginForm , SkillForm
+from .forms import LoginForm , SkillForm , ProjectForm
 from core.models import Project , Skill , Certificate , Post ,LearningJourney
 from django.contrib.auth.decorators import user_passes_test
 
@@ -125,4 +125,49 @@ def dashboard_skill_delete(request, id):
         return redirect("dashboard_skills")
     return render(request, "accounts/dashboard_skill_delete.html", {
     "skill": skill
+})
+    
+@login_required
+@user_passes_test(is_admin)
+def dashboard_project_create(request):
+
+    if request.method == "POST":
+        form = ProjectForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            form.save()
+            return redirect("dashboard_projects")
+
+    else:
+        form = ProjectForm()
+
+    return render(request, "accounts/dashboard_project_create.html", {
+        "form": form
+    })
+    
+@login_required
+@user_passes_test(is_admin)
+def dashboard_project_update(request, id):
+    project = get_object_or_404(Project, id=id)
+    if request.method == "POST":
+        form = ProjectForm(request.POST, request.FILES, instance=project)
+        if form.is_valid():
+            form.save()
+            return redirect("dashboard_projects")
+    else:
+        form = ProjectForm(instance=project)
+    return render(request, "accounts/dashboard_project_update.html", {
+    "form": form
+    })
+    
+    
+@login_required
+@user_passes_test(is_admin)
+def dashboard_project_delete(request, id):
+    project = get_object_or_404(Project, id=id)
+    if request.method == "POST":
+        project.delete()
+        return redirect("dashboard_projects")
+    return render(request, "accounts/dashboard_project_delete.html", {
+    "project": project
 })
