@@ -4,7 +4,7 @@
 
 <h1>Manage Posts</h1>
 
-<a href="#">
+<a href="{% url 'dashboard_post_create' %}">
     Add New Post
 </a>
 
@@ -37,6 +37,15 @@
         Created:
         {{ post.created_at }}
     </p>
+      <a href="{% url 'dashboard_post_update' post.id %}">
+        Edit
+    </a>
+
+    
+
+    <a href="{% url 'dashboard_post_delete' post.id %}">
+        Delete
+    </a>
 
 </section>
 

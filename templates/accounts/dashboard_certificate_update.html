@@ -1,0 +1,17 @@
+<h1>Update Certificate</h1>
+
+<form method="post" enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">
+        Update Certificate
+    </button>
+
+
+</form>
+    <a href="{% url 'dashboard_certificates' %}">
+    Back to Certificates
+</a>

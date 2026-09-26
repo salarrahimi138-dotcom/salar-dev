@@ -2,8 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render , redirect , get_object_or_404
 from django.contrib.auth import login
 from django.contrib.auth import logout
-from .forms import LoginForm , SkillForm , ProjectForm
-from core.models import Project , Skill , Certificate , Post ,LearningJourney
+from .forms import LoginForm , SkillForm , ProjectForm , CertificateForm , LearningJourneyForm , PostForm
+from core.models import Project , Skill , Certificate , Post ,LearningJourney 
 from django.contrib.auth.decorators import user_passes_test
 
 def is_admin(user):
@@ -171,3 +171,142 @@ def dashboard_project_delete(request, id):
     return render(request, "accounts/dashboard_project_delete.html", {
     "project": project
 })
+    
+    
+@login_required
+@user_passes_test(is_admin)
+def dashboard_certificate_create(request):
+
+    if request.method == "POST":
+        form = CertificateForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            form.save()
+            return redirect("dashboard_certificates")
+
+    else:
+        form = CertificateForm()
+
+    return render(request, "accounts/dashboard_certificate_create.html", {
+        "form": form
+    })
+    
+@login_required
+@user_passes_test(is_admin)
+def dashboard_certificate_update(request, id):
+    certificate = get_object_or_404(Certificate, id=id)
+    if request.method == "POST":
+        form = CertificateForm(request.POST, request.FILES, instance=certificate)
+        if form.is_valid():
+            form.save()
+            return redirect("dashboard_certificates")
+    else:
+        form = CertificateForm(instance=certificate)
+    return render(request, "accounts/dashboard_certificate_update.html", {
+    "form": form
+    })
+    
+    
+@login_required
+@user_passes_test(is_admin)
+def dashboard_certificate_delete(request, id):
+    certificate = get_object_or_404(Certificate, id=id)
+    if request.method == "POST":
+        certificate.delete()
+        return redirect("dashboard_certificates")
+    return render(request, "accounts/dashboard_certificate_delete.html", {
+    "certificate": certificate
+})
+    
+    
+    
+    
+@login_required
+@user_passes_test(is_admin)
+def dashboard_learningjourney_create(request):
+
+    if request.method == "POST":
+        form = LearningJourneyForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect("dashboard_learningjourneys")
+
+    else:
+        form = LearningJourneyForm()
+
+    return render(request, "accounts/dashboard_learningjourney_create.html", {
+        "form": form
+    })
+    
+@login_required
+@user_passes_test(is_admin)
+def dashboard_learningjourney_update(request, id):
+    learningjourney = get_object_or_404(LearningJourney, id=id)
+    if request.method == "POST":
+        form = LearningJourneyForm(request.POST , instance=learningjourney)
+        if form.is_valid():
+            form.save()
+            return redirect("dashboard_learningjourneys")
+    else:
+        form = LearningJourneyForm(instance=learningjourney)
+    return render(request, "accounts/dashboard_learningjourney_update.html", {
+    "form": form
+    })
+    
+    
+@login_required
+@user_passes_test(is_admin)
+def dashboard_learningjourney_delete(request, id):
+    learningjourney = get_object_or_404(LearningJourney, id=id)
+    if request.method == "POST":
+        learningjourney.delete()
+        return redirect("dashboard_learningjourneys")
+    return render(request, "accounts/dashboard_learningjourney_delete.html", {
+    "learningjourney": learningjourney
+})
+    
+@login_required
+@user_passes_test(is_admin)
+def dashboard_post_create(request):
+
+    if request.method == "POST":
+        form = PostForm(request.POST , request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            form.save_m2m()
+            return redirect("dashboard_posts")
+    else:
+        form = PostForm()
+    return render(request, "accounts/dashboard_post_create.html", {
+        "form": form
+    })
+    
+@login_required
+@user_passes_test(is_admin)
+def dashboard_post_update(request, id):
+    post = get_object_or_404(Post, id=id)
+    if request.method == "POST":
+        form = PostForm(request.POST , request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect("dashboard_posts")
+    else:
+        form = PostForm(instance=post)
+    return render(request, "accounts/dashboard_post_update.html", {
+    "form": form
+    })
+    
+    
+@login_required
+@user_passes_test(is_admin)
+def dashboard_post_delete(request, id):
+    post = get_object_or_404(Post, id=id)
+    if request.method == "POST":
+        post.delete()
+        return redirect("dashboard_posts")
+    return render(request, "accounts/dashboard_post_delete.html", {
+        "post": post
+    })

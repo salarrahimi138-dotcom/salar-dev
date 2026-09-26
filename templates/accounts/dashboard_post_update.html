@@ -1,0 +1,17 @@
+<h1>Update Blog/Post</h1>
+
+<form method="post" enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">
+        Update Blog/Post
+    </button>
+
+
+</form>
+    <a href="{% url 'dashboard_posts' %}">
+    Back to Blog/Post
+</a>

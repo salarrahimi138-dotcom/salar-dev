@@ -1,0 +1,17 @@
+
+<h1>Add New Learning Journey</h1>
+
+<form method="post" enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">
+        Save LearningJourney
+    </button>
+    <a href="{% url 'dashboard_learningjourneys' %}">
+        Back to Learning Journey
+</a>
+
+</form>

@@ -4,7 +4,7 @@
 
 <h1>Manage Learning Journey</h1>
 
-<a href="#">
+<a href="{% url 'dashboard_learningjourney_create' %}">
     Add New Learning Journey
 </a>
 
@@ -41,6 +41,13 @@
     <p>
         {{ item.explanation }}
     </p>
+    <a href="{% url 'dashboard_learningjourney_update' item.id %}">
+         Edit
+    </a>
+
+    <a href="{% url 'dashboard_learningjourney_delete' item.id %}">
+        Delete
+    </a>
 
 </section>
 

@@ -1,0 +1,17 @@
+<h1>Update Learning Journey </h1>
+
+<form method="post">
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">
+        Update Learning Journey
+    </button>
+
+
+</form>
+    <a href="{% url 'dashboard_learningjourneys' %}">
+    Back to Learning Journeys
+</a>

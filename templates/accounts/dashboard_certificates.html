@@ -4,7 +4,7 @@
 
 <h1>Manage Certificates</h1>
 
-<a href="#">
+<a href="{% url 'dashboard_certificate_create' %}">
     Add New Certificate
 </a>
 
@@ -38,6 +38,13 @@
             View Certificate
         </a>
     {% endif %}
+    <a href="{% url 'dashboard_certificate_update' certificate.id %}">
+    Edit
+</a>
+
+<a href="{% url 'dashboard_certificate_delete' certificate.id %}">
+    Delete
+</a>
 
 </section>
 
