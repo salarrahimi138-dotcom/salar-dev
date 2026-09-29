@@ -2,23 +2,40 @@
 
 {% block content %}
 
-<h1>Welcome To Salar.dev</h1>
-<h2>Featured Projects</h2>
+<div class="reveal">
+    <h1>Welcome To Salar.dev</h1>
+</div>
+
+
+<div class="reveal delay-1">
+    <h2>Featured Projects</h2>
+</div>
+
 
 {% for project in projects %}
+
+<div class="card reveal delay-2">
+
     <h3>
-     <a href="{% url 'projects_view' project.slug  %}">
+        <a href="{% url 'projects_view' project.slug %}">
             {{ project.title }}
         </a>
     </h3>
+
     <p>{{ project.short_description }}</p>
+
     <p>Category: {{ project.category }}</p>
+
     <p>Technologies:</p>
-     <ul>
+
+    <ul>
         {% for tech in project.technologies.all %}
             <li>{{ tech.name }}</li>
         {% endfor %}
     </ul>
+
+</div>
+
 {% endfor %}
 
 {% endblock %}

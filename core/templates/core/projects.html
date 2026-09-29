@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+
+{% block content %}
 <h1>My Projects</h1>
 <form method= "get">
     <input type="text" name="q" placeholder="Search projects">
@@ -41,3 +43,5 @@
        </p>
     {% endif %}
 {% endfor %}
+
+{% endblock %}
