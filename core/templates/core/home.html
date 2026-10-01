@@ -1,4 +1,4 @@
-```html
+
 {% extends "base.html" %}
 {% load static %}
 
@@ -122,10 +122,6 @@
         <div class="projects-grid">
 
 
-            <p>
-                تعداد پروژه‌ها: {{ projects|length }}
-            </p>
-
 
 
             {% for project in projects %}
@@ -214,6 +210,181 @@
 
 </section>
 
+<section class="skills-preview">
+
+    <div class="container">
+
+
+        <div class="section-header">
+
+            <h2>
+                My Skills
+            </h2>
+
+            <p>
+                Technologies and tools I use to build modern applications.
+            </p>
+
+        </div>
+
+
+
+        <div class="skills-grid">
+
+
+            {% for skill in skills %}
+
+
+           <div class="skill-preview-card glass-card">
+
+
+                <div class="skill-header">
+
+                    <h3>
+                       {{ skill.name }}
+                   </h3>
+
+                     <span>
+                      {{ skill.proficiency }}%
+                          </span>
+
+    </div>
+
+
+
+    <div class="skill-progress">
+
+        <div class="skill-progress-bar
+    {% if skill.proficiency < 50 %}
+        skill-low
+    {% elif skill.proficiency < 80 %}
+        skill-medium
+    {% else %}
+        skill-high
+    {% endif %}"
+    style="width: {{ skill.proficiency }}%;">
+</div>
+
+    </div>
+
+
+</div>
+
+
+            {% empty %}
+
+
+            <p>
+                No skills available yet.
+            </p>
+
+
+            {% endfor %}
+
+
+        </div>
+
+
+
+        <div class="section-action">
+
+            <a href="{% url 'skills' %}" class="btn btn-secondary">
+                View All Skills
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+<section class="learning-preview">
+
+    <div class="container">
+
+
+        <div class="section-header">
+
+            <h2>
+                Learning Journey
+            </h2>
+
+            <p>
+                My continuous path of learning and building.
+            </p>
+
+        </div>
+
+
+
+        <div class="learning-grid">
+
+
+            {% for item in learning %}
+  
+
+
+          <div class="learning-card glass-card">
+
+
+    <div class="learning-number">
+        {{ forloop.counter|stringformat:"02d" }}
+    </div>
+
+
+    <h3>
+        {{ item.route_title }}
+    </h3>
+
+
+    <p>
+        {{ item.provider }}
+    </p>
+
+
+   <span class="learning-status 
+       {% if item.status|lower == 'completed' %}
+            status-completed
+        {% elif item.status|lower == 'progress' %}
+            status-progress
+        {% else %}
+            status-planned
+        {% endif %}
+">
+        {{ item.status }}
+    </span>
+
+
+    </div>
+
+            {% empty %}
+
+
+            <p>
+                No learning journey available.
+            </p>
+
+
+            {% endfor %}
+
+
+        </div>
+
+
+
+        <div class="section-action">
+
+            <a href="{% url 'learning' %}" class="btn btn-secondary">
+                View Learning Journey
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
 
 {% endblock %}
-```
+

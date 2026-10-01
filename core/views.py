@@ -6,10 +6,10 @@ from django.db.models import Q
 
 def home(request): 
     
-    projects=Project.objects.filter(
-      featured=True
-    )
-    return render(request , "core/home.html" , {"projects":projects})
+    projects = Project.objects.filter(featured=True)
+    skills = Skill.objects.all()[:6]
+    learning = LearningJourney.objects.all().order_by("display_order")[:4]
+    return render(request , "core/home.html" , {"projects":projects , "skills": skills , "learning": learning })
 
 
 def projects(request):
