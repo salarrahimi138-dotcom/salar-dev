@@ -15,10 +15,91 @@
 
     {% endblock %}
 
-    {% include "components/footer.html" %}
+    
 
 
     <script src="{% static 'js/animishen.js' %}"></script>
+
+
+    <footer class="footer">
+
+    <div class="footer-container">
+
+
+        <div class="footer-brand">
+
+            <h3>
+                Salar.dev
+            </h3>
+
+            <p>
+                Full Stack Developer building modern applications
+                with Python, Django, AI and Cyber Security.
+            </p>
+
+        </div>
+
+
+
+        <div class="footer-nav spread">
+
+
+            <div class="footer-links">
+
+                <a href="{% url 'home' %}">
+                    Home
+                </a>
+
+
+                <a href="{% url 'projects' %}">
+                    Projects
+                </a>
+
+
+                <a href="{% url 'skills' %}">
+                    Skills
+                </a>
+
+
+                <a href="{% url 'blog' %}">
+                    Blog
+                </a>
+
+            </div>
+
+
+
+            <div class="footer-social">
+
+                <a href="#">
+                    GitHub
+                </a>
+
+
+                <a href="#">
+                    LinkedIn
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 Salar.dev
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+</footer>
 
 
     
