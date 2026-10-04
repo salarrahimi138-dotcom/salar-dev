@@ -1,7 +1,9 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salar.dev</title>
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -9,99 +11,101 @@
 
 <body>
 
+    <div id="page-loader">
+        <!-- Loader by jeremyssocial (Uiverse.io) - MIT License -->
+        <div class="pl-terminal">
+            <div class="pl-header">
+                <div class="pl-title">Status</div>
+                <div class="pl-controls">
+                    <div class="pl-control pl-close"></div>
+                    <div class="pl-control pl-minimize"></div>
+                    <div class="pl-control pl-maximize"></div>
+                </div>
+            </div>
+            <div class="pl-text">Loading...</div>
+        </div>
+    </div>
+
     {% include "components/navbar.html" %}
+
 
     {% block content %}
 
     {% endblock %}
 
-    
-
-
-    <script src="{% static 'js/animishen.js' %}"></script>
-
 
     <footer class="footer">
 
-    <div class="footer-container">
+        <div class="footer-container">
 
+            <div class="footer-brand">
 
-        <div class="footer-brand">
+                <h3>
+                    Salar.dev
+                </h3>
 
-            <h3>
-                Salar.dev
-            </h3>
-
-            <p>
-                Full Stack Developer building modern applications
-                with Python, Django, AI and Cyber Security.
-            </p>
-
-        </div>
-
-
-
-        <div class="footer-nav spread">
-
-
-            <div class="footer-links">
-
-                <a href="{% url 'home' %}">
-                    Home
-                </a>
-
-
-                <a href="{% url 'projects' %}">
-                    Projects
-                </a>
-
-
-                <a href="{% url 'skills' %}">
-                    Skills
-                </a>
-
-
-                <a href="{% url 'blog' %}">
-                    Blog
-                </a>
+                <p>
+                    Full Stack Developer building modern applications
+                    with Python, Django, AI and Cyber Security.
+                </p>
 
             </div>
 
 
+            <div class="footer-nav spread">
 
-            <div class="footer-social">
+                <div class="footer-links">
 
-                <a href="#">
-                    GitHub
-                </a>
+                    <a href="{% url 'home' %}">
+                        Home
+                    </a>
+
+                    <a href="{% url 'projects' %}">
+                        Projects
+                    </a>
+
+                    <a href="{% url 'skills' %}">
+                        Skills
+                    </a>
+
+                    <a href="{% url 'blog' %}">
+                        Blog
+                    </a>
+
+                </div>
 
 
-                <a href="#">
-                    LinkedIn
-                </a>
+                <div class="footer-social">
+
+                    <a href="#">
+                        GitHub
+                    </a>
+
+                    <a href="#">
+                        LinkedIn
+                    </a>
+
+                </div>
 
             </div>
 
 
-        </div>
+            <div class="footer-bottom">
 
+                <p>
+                    © 2026 Salar.dev
+                </p>
 
-
-        <div class="footer-bottom">
-
-            <p>
-                © 2026 Salar.dev
-            </p>
+            </div>
 
         </div>
 
-
-    </div>
-
-
-</footer>
+    </footer>
 
 
-    
+    <script src="{% static 'js/loader.js' %}"></script>
+    <script src="{% static 'js/animishen.js' %}"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
+
 </body>
 </html>

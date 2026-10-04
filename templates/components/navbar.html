@@ -7,14 +7,11 @@
     </a>
 </div>
 
-
-
     <div class="sns-nav-pill">
 
         <a href="{% url 'home' %}" class="active">
             Home
         </a>
-
 
         <a href="{% url 'about' %}">
             About
@@ -42,9 +39,30 @@
 
     </div>
 
-
-
     <div class="sns-actions">
+
+        <label class="theme-switch">
+            <input type="checkbox" class="theme-switch__checkbox" id="theme-toggle" checked aria-label="Toggle dark mode">
+            <div class="theme-switch__container">
+                <div class="theme-switch__clouds"></div>
+                <svg class="theme-switch__stars-container" viewBox="0 0 64 32" fill="currentColor" aria-hidden="true">
+                    <path d="M8 3Q8 8 13 8Q8 8 8 13Q8 8 3 8Q8 8 8 3Z"/>
+                    <path d="M22 19Q22 22 25 22Q22 22 22 25Q22 22 19 22Q22 22 22 19Z"/>
+                    <path d="M36 4Q36 8 40 8Q36 8 36 12Q36 8 32 8Q36 8 36 4Z"/>
+                    <path d="M50 14Q50 20 56 20Q50 20 50 26Q50 20 44 20Q50 20 50 14Z"/>
+                    <path d="M58 3.5Q58 6 60.5 6Q58 6 58 8.5Q58 6 55.5 6Q58 6 58 3.5Z"/>
+                </svg>
+                <div class="theme-switch__circle-container">
+                    <div class="theme-switch__sun-moon-container">
+                        <div class="theme-switch__moon">
+                            <div class="theme-switch__spot"></div>
+                            <div class="theme-switch__spot"></div>
+                            <div class="theme-switch__spot"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </label>
 
         {% if request.user.is_authenticated %}
 
@@ -69,6 +87,5 @@
         {% endif %}
 
     </div>
-
 
 </nav>

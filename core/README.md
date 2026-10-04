@@ -973,3 +973,67 @@ It is a representation of my growth as a developer, including:
 * Technical experiences
 
 The goal is to create a professional developer platform that represents my abilities, continuous learning process, and real-world software development experience.
+
+
+# Day 12 — Theme System & Core Experience
+
+The focus moved toward improving the user experience and completing the core frontend experience of Salar.dev.
+
+## Dark / Light Theme System
+
+Implemented a complete theme switching system.
+
+Features:
+
+* Custom Dark / Light mode toggle
+* Integration with existing `data-theme` system
+* Theme persistence using LocalStorage
+* Automatic theme restoration after refresh
+* Navbar theme switch integration
+* Smooth theme transition experience
+* Verified color compatibility in both themes
+
+
+## Professional Loading Experience
+
+Implemented a custom branded loading screen for Salar.dev.
+
+Features:
+
+* Developer-style terminal loader
+* Custom Salar.dev loading identity
+* Typing animation effect
+* Smooth fade-out transition
+* Loading state management using JavaScript
+* Theme-compatible loader design
+* Improved text readability and color contrast
+
+
+## Frontend Improvements
+
+Additional improvements:
+
+* Improved user first impression
+* Enhanced website interaction quality
+* Improved visual consistency between components
+* Prepared the foundation for future UX improvements
+
+
+## Current Progress
+
+Completed:
+
+✅ Dark / Light Theme System  
+✅ LocalStorage Theme Persistence  
+✅ Navbar Theme Integration  
+✅ Professional Loading Screen  
+✅ Loader Animations  
+✅ Theme Compatibility Review  
+
+
+Next Steps:
+
+* Search Box System
+* Error Pages
+* Full Website CSS Completion
+* Dashboard UI Improvements
