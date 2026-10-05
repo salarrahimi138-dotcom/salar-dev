@@ -1,0 +1,343 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+<section class="search-results-page">
+
+
+    <div class="search-header">
+
+        <h1>
+            Search Results
+        </h1>
+
+        <p>
+            Results for:
+            <span>"{{ query }}"</span>
+        </p>
+
+    </div>
+
+
+
+
+    
+
+    <section class="search-section">
+
+        <h2>
+            Projects
+        </h2>
+
+
+        <div class="search-grid">
+
+
+            {% if projects %}
+
+                {% for project in projects %}
+
+                    <div class="search-card">
+
+
+                        <div class="search-card-content">
+
+                            <h3>
+                                {{ project.title }}
+                            </h3>
+
+
+                            <p>
+                                {{ project.short_description }}
+                            </p>
+
+
+                            <span class="search-tag">
+                                Project
+                            </span>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                {% endfor %}
+
+
+            {% else %}
+
+                <p class="empty-result">
+                    No projects found.
+                </p>
+
+            {% endif %}
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+
+
+
+
+
+    <section class="search-section">
+
+
+        <h2>
+            Blog
+        </h2>
+
+
+        <div class="search-grid">
+
+
+            {% if posts %}
+
+
+                {% for post in posts %}
+
+
+                    <div class="search-card">
+
+
+                        <h3>
+                            {{ post.title }}
+                        </h3>
+
+
+                        <p>
+                            {{ post.content|truncatewords:20 }}
+                        </p>
+
+
+                        <span class="search-tag">
+                            Blog
+                        </span>
+
+
+                    </div>
+
+
+                {% endfor %}
+
+
+
+            {% else %}
+
+
+                <p class="empty-result">
+                    No blog posts found.
+                </p>
+
+
+            {% endif %}
+
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+
+    <section class="search-section">
+
+
+        <h2>
+            Skills
+        </h2>
+
+
+        <div class="search-grid">
+
+
+        {% if skills %}
+
+
+            {% for skill in skills %}
+
+
+                <div class="search-card">
+
+
+                    <h3>
+                        {{ skill.name }}
+                    </h3>
+
+
+                    <p>
+                        {{ skill.category.name }}
+                    </p>
+
+
+                    <span class="search-tag">
+                        Skill
+                    </span>
+
+
+                </div>
+
+
+            {% endfor %}
+
+
+
+        {% else %}
+
+
+            <p class="empty-result">
+                No skills found.
+            </p>
+
+
+        {% endif %}
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+
+
+    <section class="search-section">
+
+
+        <h2>
+            Learning Journey
+        </h2>
+
+
+        <div class="search-grid">
+
+
+        {% if learning %}
+
+
+            {% for item in learning %}
+
+
+                <div class="search-card">
+
+
+                    <h3>
+                        {{ item.title }}
+                    </h3>
+
+
+                    <p>
+                        {{ item.provider }}
+                    </p>
+
+
+                    <span class="status-badge">
+                        {{ item.status }}
+                    </span>
+
+
+                </div>
+
+
+            {% endfor %}
+
+
+
+        {% else %}
+
+
+            <p class="empty-result">
+                No learning records found.
+            </p>
+
+
+        {% endif %}
+
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+
+    <section class="search-section">
+
+
+        <h2>
+            Certificates
+        </h2>
+
+
+        <div class="search-grid">
+
+
+        {% if certificates %}
+
+
+            {% for certificate in certificates %}
+
+
+                <div class="search-card">
+
+
+                    <h3>
+                        {{ certificate.title }}
+                    </h3>
+
+
+                    <p>
+                        {{ certificate.provider }}
+                    </p>
+
+
+                    <span class="search-tag">
+                        Certificate
+                    </span>
+
+
+                </div>
+
+
+            {% endfor %}
+
+
+
+        {% else %}
+
+
+            <p class="empty-result">
+                No certificates found.
+            </p>
+
+
+        {% endif %}
+
+
+
+        </div>
+
+
+    </section>
+
+
+
+</section>
+{% endblock %}

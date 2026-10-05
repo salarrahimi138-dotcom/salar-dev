@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% block content %}
+
+<section class="error-page">
+
+    <div class="error-container">
+
+
+        <h1 class="error-code">
+            403
+        </h1>
+
+
+        <h2>
+            Access Denied
+        </h2>
+
+
+        <p>
+            You don't have permission to access this page.
+        </p>
+
+
+
+        <div class="terminal-box">
+
+
+            <div class="terminal-header">
+                Salar.dev Terminal
+            </div>
+
+
+            <div class="terminal-content">
+
+                <p>
+                    $ checking permissions
+                </p>
+
+                <p>
+                    ERROR: Permission Denied
+                </p>
+
+                <p>
+                    access blocked
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <a href="/" class="error-button">
+            ← Back To Home
+        </a>
+
+
+    </div>
+
+
+</section>
+
+
+{% endblock %}

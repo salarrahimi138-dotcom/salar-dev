@@ -4,6 +4,8 @@ from .models import Project ,Category ,Skill , LearningJourney , Certificate , P
 
 from django.db.models import Q
 
+from django.core.exceptions import PermissionDenied
+
 def home(request): 
     
     projects = Project.objects.filter(featured=True)
@@ -67,3 +69,51 @@ def blog(request):
 def blog_detail(request , slug):
     post = get_object_or_404(Post, slug=slug)
     return render(request , "core/blog_detail.html" ,{ "post":post} )
+
+def search(request):
+    query = request.GET.get("q")
+    projects = []
+    posts = []
+    skills = []
+    learning = []
+    certificates = []
+    if  query :
+        projects = Project.objects.filter(
+            Q(title__icontains=query) | 
+            Q(short_description__icontains=query) | 
+            Q(description__icontains=query) |
+            Q(technologies__name__icontains=query)).distinct()
+        posts = Post.objects.filter(
+            Q(title__icontains=query) |
+            Q(content__icontains=query) |
+            Q(tags__name__icontains=query),
+            status="published").distinct()
+        skills = Skill.objects.filter(
+            Q(name__icontains=query) |
+            Q(category__name__icontains=query)).distinct()
+        learning = LearningJourney.objects.filter(
+            Q(title__icontains=query) |
+            Q(route_title__icontains=query) |
+            Q(provider__icontains=query) |
+            Q(explanation__icontains=query) |
+            Q(skill__name__icontains=query)).distinct()
+        certificates = Certificate.objects.filter(
+            Q(title__icontains=query) |
+            Q(provider__icontains=query) |
+               Q(description__icontains=query)).distinct()
+
+            
+    return render(request , "core/search_results.html" , {
+        "query" : query ,
+        "projects": projects,
+        "posts": posts,
+        "skills": skills,
+        "learning": learning,
+        "certificates": certificates,})
+    
+def test_403(request):
+    raise PermissionDenied
+
+
+def test_500(request):
+    x = 1 / 0

@@ -21,4 +21,9 @@ urlpatterns=[
     path("blog/" , views.blog , name="blog"),
     
     path("blog/<slug:slug>/", views.blog_detail, name="blog_detail"),
+    
+    path("search/", views.search, name="search"),
+    
+    path("test-403/", views.test_403, name="test_403"),
+    path("test-500/", views.test_500, name="test_500"),
 ]

@@ -1,91 +1,245 @@
 {% load static %}
 
 <nav class="sns-navbar">
-<div class="sns-logo">
-    <a href="{% url 'home' %}" class="logo-text">
-        Salar<span>.dev</span>
-    </a>
-</div>
+
+
+    <div class="sns-logo">
+
+        <a href="{% url 'home' %}" class="logo-text">
+            Salar<span>.dev</span>
+        </a>
+
+    </div>
+
+
 
     <div class="sns-nav-pill">
+
 
         <a href="{% url 'home' %}" class="active">
             Home
         </a>
 
+
         <a href="{% url 'about' %}">
             About
         </a>
+
 
         <a href="{% url 'projects' %}">
             Projects
         </a>
 
+
         <a href="{% url 'skills' %}">
             Skills
         </a>
+
 
         <a href="{% url 'learning' %}">
             Learning
         </a>
 
+
         <a href="{% url 'certificate' %}">
             Certificates
         </a>
+
 
         <a href="{% url 'blog' %}">
             Blog
         </a>
 
+
     </div>
+
+
+
 
     <div class="sns-actions">
 
+
+
+        <!-- Theme Switch -->
+
         <label class="theme-switch">
-            <input type="checkbox" class="theme-switch__checkbox" id="theme-toggle" checked aria-label="Toggle dark mode">
+
+
+            <input 
+            type="checkbox" 
+            class="theme-switch__checkbox" 
+            id="theme-toggle"
+            checked>
+
+
             <div class="theme-switch__container">
+
+
                 <div class="theme-switch__clouds"></div>
-                <svg class="theme-switch__stars-container" viewBox="0 0 64 32" fill="currentColor" aria-hidden="true">
+
+
+                <svg 
+                class="theme-switch__stars-container" 
+                viewBox="0 0 64 32">
+
+
                     <path d="M8 3Q8 8 13 8Q8 8 8 13Q8 8 3 8Q8 8 8 3Z"/>
+
                     <path d="M22 19Q22 22 25 22Q22 22 22 25Q22 22 19 22Q22 22 22 19Z"/>
+
                     <path d="M36 4Q36 8 40 8Q36 8 36 12Q36 8 32 8Q36 8 36 4Z"/>
-                    <path d="M50 14Q50 20 56 20Q50 20 50 26Q50 20 44 20Q50 20 50 14Z"/>
-                    <path d="M58 3.5Q58 6 60.5 6Q58 6 58 8.5Q58 6 55.5 6Q58 6 58 3.5Z"/>
+
+
                 </svg>
+
+
+
                 <div class="theme-switch__circle-container">
+
                     <div class="theme-switch__sun-moon-container">
+
                         <div class="theme-switch__moon">
+
                             <div class="theme-switch__spot"></div>
                             <div class="theme-switch__spot"></div>
                             <div class="theme-switch__spot"></div>
+
                         </div>
+
                     </div>
+
                 </div>
+
+
             </div>
+
+
         </label>
 
+
+
+
+
+        <!-- Search Box -->
+
+
+        <form action="{% url 'search' %}" method="GET">
+
+
+            <div class="container">
+
+
+                <input 
+
+                type="text"
+
+                name="q"
+
+                class="input"
+
+                required
+
+                placeholder="Search...">
+
+
+                <div class="icon">
+
+
+                    <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    class="ionicon" 
+                    viewBox="0 0 512 512">
+
+
+                        <title>Search</title>
+
+
+                        <path 
+                        d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"
+
+                        fill="none"
+
+                        stroke="currentColor"
+
+                        stroke-miterlimit="10"
+
+                        stroke-width="32">
+
+
+                        </path>
+
+
+
+                        <path 
+
+                        fill="none"
+
+                        stroke="currentColor"
+
+                        stroke-linecap="round"
+
+                        stroke-miterlimit="10"
+
+                        stroke-width="32"
+
+                        d="M338.29 338.29L448 448">
+
+
+                        </path>
+
+
+
+                    </svg>
+
+
+                </div>
+
+
+            </div>
+
+
+        </form>
+
+
+
+
+
+
+
         {% if request.user.is_authenticated %}
+
 
             <a href="{% url 'dashboard' %}">
                 Dashboard
             </a>
 
+
             <a href="{% url 'logout' %}">
                 Logout
             </a>
 
+
+
         {% else %}
+
 
             <a href="{% url 'login' %}">
                 Login
             </a>
 
+
             <a href="#">
                 Signup
             </a>
 
+
+
         {% endif %}
 
+
+
     </div>
+
+
 
 </nav>

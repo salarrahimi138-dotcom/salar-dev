@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<section class="error-page">
+
+    <div class="error-container">
+
+
+        <h1 class="error-code">
+            500
+        </h1>
+
+
+        <h2>
+            Something Went Wrong
+        </h2>
+
+
+        <p>
+            Our server encountered an unexpected error.
+        </p>
+
+
+
+        <div class="terminal-box">
+
+
+            <div class="terminal-header">
+                Salar.dev Terminal
+            </div>
+
+
+            <div class="terminal-content">
+
+
+                <p>
+                    $ running server
+                </p>
+
+
+                <p>
+                    ERROR: Internal Server Error
+                </p>
+
+
+                <p>
+                    try again later
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <a href="/" class="error-button">
+            ← Back To Home
+        </a>
+
+
+    </div>
+
+
+</section>
+
+
+{% endblock %}
