@@ -1,6 +1,6 @@
 from django.contrib import admin 
 
-from .models import Category , Technology , Project , SkillCategory , Skill , LearningJourney , Certificate , Post , BlogCategory , Tag
+from .models import Category , Technology , Project , SkillCategory , Skill , LearningJourney , Certificate , Post , BlogCategory , Tag , About
 
 
 
@@ -63,4 +63,6 @@ class PostAdmin(admin.ModelAdmin):
 admin.site.register(Tag)
 admin.site.register(BlogCategory)
 
-
+@admin.register(About)
+class AboutAdmin(admin.ModelAdmin):
+    list_display = ("title", "updated_at")

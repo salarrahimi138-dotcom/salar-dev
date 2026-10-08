@@ -1,5 +1,44 @@
 {% extends "base.html" %}
 {% load static %}
+
 {% block content %}
-    <h1>About My</h1>
+
+<section class="about-page">
+
+    <div class="about-container">
+
+
+        {% if about.image %}
+        <div class="about-image">
+            <img src="{{ about.image.url }}" alt="{{ about.title }}">
+        </div>
+        {% endif %}
+
+
+
+        <div class="about-header">
+
+            <h1>
+                {{ about.title }}
+            </h1>
+
+            <p>
+                {{ about.short_bio }}
+            </p>
+
+        </div>
+
+
+
+        <div class="about-description">
+
+            {{ about.description|linebreaks }}
+
+        </div>
+
+
+    </div>
+
+</section>
+
 {% endblock %}

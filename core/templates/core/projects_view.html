@@ -1,26 +1,139 @@
+{% extends "base.html" %}
+{% load static %}
 
-    <h2>{{ project.title }}</h2>
+{% block content %}
+
+
+<section class="project-detail-page">
+
+
+    <div class="project-detail-header">
+
+
+        <h1>
+            {{ project.title }}
+        </h1>
+
+
+        <span class="project-detail-category">
+            {{ project.category }}
+        </span>
+
+
+    </div>
+
+
+
+
     {% if project.image %}
-        <img src="{{ project.image.url }}" alt="{{ project.title }}">
-    {% endif %}
-    <p>{{ project.short_description }}</p>
-    <p>{{ project.description }}</p>
-    <p>Category: {{ project.category }}</p>
-    <p>Technologies:</p>
 
-    <ul>
-        {% for tech in project.technologies.all %}
-            <li>{{ tech.name }}</li>
-        {% endfor %}
-    </ul>
+    <div class="project-detail-image">
 
-    {% if project.github_url %}
-        <p>
-            <a href="{{ project.github_url }}">GitHub</a>
-       </p>
+
+        <img 
+        src="{{ project.image.url }}" 
+        alt="{{ project.title }}"
+        >
+
+
+    </div>
+
     {% endif %}
-    {% if project.demo_url %}
-      <p>
-            <a href="{{ project.demo_url }}">Demo</a>
-       </p>
-    {% endif %}
+
+
+
+
+    <div class="project-detail-content">
+
+
+        <div class="project-description">
+
+
+            <h2>
+                About This Project
+            </h2>
+
+
+            <p>
+                {{ project.short_description }}
+            </p>
+
+
+            <p>
+                {{ project.description }}
+            </p>
+
+
+        </div>
+
+
+
+
+
+        <div class="project-technologies">
+
+
+            <h2>
+                Technologies
+            </h2>
+
+
+            <div class="detail-tech-list">
+
+
+            {% for tech in project.technologies.all %}
+
+                <span>
+                    {{ tech.name }}
+                </span>
+
+
+            {% endfor %}
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+        <div class="project-detail-links">
+
+
+        {% if project.github_url %}
+
+            <a href="{{ project.github_url }}">
+                GitHub
+            </a>
+
+        {% endif %}
+
+
+
+
+        {% if project.demo_url %}
+
+            <a href="{{ project.demo_url }}">
+                Live Demo
+            </a>
+
+        {% endif %}
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+</section>
+
+
+
+{% endblock %}

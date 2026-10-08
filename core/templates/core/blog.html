@@ -3,35 +3,113 @@
 
 {% block content %}
 
-<h1>Blog</h1>
+<section class="blog-page">
 
-<div>
 
-{% for post in posts %}
+    <div class="blog-header">
 
-    <a href="{% url 'blog_detail' post.slug %}">
-        <h3>{{ post.title }}</h3>
-    </a>
+        <h1>
+            Blog
+        </h1>
 
-    <p> Author: {{ post.author }}</p>
+        <p>
+            Articles, notes and development experiences.
+        </p>
 
-    <p>Category: {{ post.category}}</p>
+    </div>
 
-    {% for tag in post.tags.all %}
-        <span>{{ tag.name }}</span>
-    {% endfor %}
 
-    {% if post.image %}
-        <img src="{{ post.image.url }}" alt="{{ post.title }}">
-    {% endif %}
 
-    
-    <p>{{ post.content|truncatewords:30 }}</p>
-    <p> Created At: {{ post.created_at|date:"M d, Y" }}</p>
-    <p> Updated At: {{ post.updated_at|date:"M d, Y" }}</p>
+    <div class="blog-grid">
 
-{% endfor %}
 
-</div>
+        {% for post in posts %}
+
+
+        <article class="blog-card">
+
+
+            {% if post.image %}
+
+            <div class="blog-image">
+
+                <img src="{{ post.image.url }}" 
+                     alt="{{ post.title }}">
+
+            </div>
+
+            {% endif %}
+
+
+
+            <div class="blog-content">
+
+
+                <div class="blog-meta">
+
+                    <span>
+                        {{ post.category }}
+                    </span>
+
+                    <span>
+                        {{ post.created_at|date:"M d, Y" }}
+                    </span>
+
+                </div>
+
+
+
+                <a href="{% url 'blog_detail' post.slug %}">
+
+                    <h2>
+                        {{ post.title }}
+                    </h2>
+
+                </a>
+
+
+
+                <p>
+                    {{ post.content|truncatewords:30 }}
+                </p>
+
+
+
+                <div class="blog-tags">
+
+                    {% for tag in post.tags.all %}
+
+                        <span>
+                            #{{ tag.name }}
+                        </span>
+
+                    {% endfor %}
+
+                </div>
+
+
+
+                <a href="{% url 'blog_detail' post.slug %}" 
+                   class="blog-button">
+
+                    Read More
+
+                </a>
+
+
+            </div>
+
+
+        </article>
+
+
+        {% endfor %}
+
+
+    </div>
+
+
+</section>
+
 
 {% endblock %}

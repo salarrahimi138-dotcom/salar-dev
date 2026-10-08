@@ -1,24 +1,118 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
-<h2>{{ post.title }}</h2>
-    {% if post.image %}
-        <img src="{{ post.image.url }}" alt="{{ post.title }}">
-    {% endif %}
-    <p>{{ post.content}}</p>
-    <p> Author: {{ post.author }}</p>
-    <p>Category: {{ post.category}}</p>
-    {% for tag in post.tags.all %}
-        <span>{{ tag.name }}</span>
-    {% endfor %}
-    <p> Created At: {{ post.created_at|date:"M d, Y" }}</p>
-    <p> Updated At: {{ post.updated_at|date:"M d, Y" }}</p>
+<section class="blog-detail-page">
 
-<a href="{% url 'blog' %}">
-    Back to Blog
-</a>
- 
+
+    <article class="blog-detail-container">
+
+
+        {% if post.image %}
+
+        <div class="blog-detail-image">
+
+            <img src="{{ post.image.url }}" 
+                 alt="{{ post.title }}">
+
+        </div>
+
+        {% endif %}
+
+
+
+
+        <div class="blog-detail-content">
+
+
+
+            <div class="blog-detail-meta">
+
+
+                <span>
+                    {{ post.category }}
+                </span>
+
+
+                <span>
+                    {{ post.created_at|date:"M d, Y" }}
+                </span>
+
+
+            </div>
+
+
+
+
+            <h1>
+                {{ post.title }}
+            </h1>
+
+
+
+            <div class="blog-author">
+
+                Written by:
+                {{ post.author }}
+
+            </div>
+
+
+
+
+            <div class="blog-detail-text">
+
+                {{ post.content|linebreaks }}
+
+            </div>
+
+
+
+
+            <div class="blog-detail-tags">
+
+
+                {% for tag in post.tags.all %}
+
+                    <span>
+                        #{{ tag.name }}
+                    </span>
+
+
+                {% endfor %}
+
+
+            </div>
+
+
+
+            <div class="blog-detail-footer">
+
+
+                <p>
+                    Updated:
+                    {{ post.updated_at|date:"M d, Y" }}
+                </p>
+
+
+                <a href="{% url 'blog' %}" class="blog-button">
+
+                    ← Back to Blog
+
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+    </article>
+
+
+</section>
+
+
 {% endblock %}
-    
-    

@@ -3,32 +3,98 @@
 
 {% block content %}
 
-<h1>Certificates</h1>
+<section class="certificates-page">
 
-<div>
 
-{% for certificate in certificates %}
+    <div class="certificates-header">
 
-    <h3>{{ certificate.title }}</h3>
+        <h1>
+            Certificates
+        </h1>
 
-    <p>Provider: {{ certificate.provider }}</p>
+        <p>
+            Professional certificates and achievements.
+        </p>
 
-    <p>Issue Date: {{ certificate.issue_date }}</p>
+    </div>
 
-    <p>{{ certificate.description }}</p>
 
-    {% if certificate.image %}
-        <img src="{{ certificate.image.url }}" alt="{{ certificate.title }}">
-    {% endif %}
 
-    {% if certificate.certificate_url %}
-        <a href="{{ certificate.certificate_url }}">
-            View Certificate
-        </a>
-    {% endif %}
+    <div class="certificates-grid">
 
-{% endfor %}
 
-</div>
+        {% for certificate in certificates %}
+
+
+        <article class="certificate-card">
+
+
+            {% if certificate.image %}
+
+            <div class="certificate-image">
+
+                <img src="{{ certificate.image.url }}" 
+                     alt="{{ certificate.title }}">
+
+            </div>
+
+            {% endif %}
+
+
+
+            <div class="certificate-content">
+
+
+                <h2>
+                    {{ certificate.title }}
+                </h2>
+
+
+                <span class="certificate-provider">
+                    {{ certificate.provider }}
+                </span>
+
+
+
+                <p>
+                    {{ certificate.description }}
+                </p>
+
+
+
+                <div class="certificate-date">
+
+                    {{ certificate.issue_date }}
+
+                </div>
+
+
+
+                {% if certificate.certificate_url %}
+
+                <a href="{{ certificate.certificate_url }}" 
+                   class="certificate-button">
+
+                    View Certificate
+
+                </a>
+
+                {% endif %}
+
+
+            </div>
+
+
+        </article>
+
+
+        {% endfor %}
+
+
+    </div>
+
+
+</section>
+
 
 {% endblock %}

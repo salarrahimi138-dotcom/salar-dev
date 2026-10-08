@@ -3,20 +3,86 @@
 
 {% block content %}
 
-<h1>Learning Journey</h1>
-<div>
-{% for item in learning %}
+<section class="learning-page">
+
+    <div class="learning-header">
+
+        <h1>
+            Learning Journey
+        </h1>
+
+        <p>
+            My path of continuous learning and professional growth.
+        </p>
+
+    </div>
 
 
-    <h3>{{ item.title }}</h3>
-    <p>Skill Name:{{ item.skill.name }}</p>
-    <p>Status:{{ item.status }} </p>
-    <p>Provider:{{ item.provider }} </p>
-    <p>{{ item.route_title }}</p>
-    <p>{{ item.explanation }}</p>
+    <div class="learning-timeline">
 
-{% endfor %}
 
-</div>
+        {% for item in learning %}
+
+
+        <article class="learning-card">
+
+
+            <div class="learning-dot"></div>
+
+
+            <div class="learning-content">
+
+
+                <h2>
+                    {{ item.title }}
+                </h2>
+
+
+                <span class="learning-skill">
+                    {{ item.skill.name }}
+                </span>
+
+
+                <p>
+                    {{ item.route_title }}
+                </p>
+
+
+                <p>
+                    {{ item.explanation }}
+                </p>
+
+
+
+                <div class="learning-info">
+
+
+                    <span>
+                        {{ item.provider }}
+                    </span>
+
+
+                    <span class="learning-status {{ item.status }}">
+                        {{ item.get_status_display }}
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+        </article>
+
+
+        {% endfor %}
+
+
+    </div>
+
+
+</section>
+
 
 {% endblock %}

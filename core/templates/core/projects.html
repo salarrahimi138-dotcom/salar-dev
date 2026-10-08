@@ -2,47 +2,148 @@
 {% load static %}
 
 {% block content %}
-<h1>My Projects</h1>
-<form method= "get">
-    <input type="text" name="q" placeholder="Search projects">
-    <button type="submit">Search</button>
-</form>
-<h3>Categories</h3>
 
-{% for category in categories %}
-    <p>
-        <a href="?category={{category.name}}">
-        {{category.name}}
-        </a>
-    </p>
-{% endfor %}
-        
-{% for project in projects %}
-    <h2>
-        <a href="{% url 'projects_view' project.slug  %}">
-            {{ project.title }}
-        </a>
-    </h2>
-    <p>{{ project.short_description }}</p>
-    <p>Category: {{ project.category }}</p>
-    <p>Technologies:</p>
+<section class="projects-page">
 
-    <ul>
-        {% for tech in project.technologies.all %}
-            <li>{{ tech.name }}</li>
-        {% endfor %}
-    </ul>
+    <div class="projects-header">
 
-    {% if project.github_url %}
+        <h1>
+            My Projects
+        </h1>
+
         <p>
-            <a href="{{ project.github_url }}">GitHub</a>
-       </p>
+            Explore my projects, technologies and development journey.
+        </p>
+
+    </div>
+
+
+
+
+
+    <div class="project-categories">
+
+        <h3>
+            Categories
+        </h3>
+
+
+        {% for category in categories %}
+
+            <a href="?category={{category.name}}" class="category-tag">
+                {{category.name}}
+            </a>
+
+        {% endfor %}
+
+    </div>
+
+
+
+    <div class="projects-grid">
+    {% if projects %}
+
+
+    {% for project in projects %}
+
+
+        <article class="project-card">
+             {% if project.image %}
+
+                 <div class="project-image">
+
+                     <img 
+                         src="{{ project.image.url }}" 
+                         alt="{{ project.title }}">
+                 </div>
+
+            {% endif %}
+
+
+            <h2>
+                <a href="{% url 'projects_view' project.slug %}">
+                    {{project.title}}
+                </a>
+            </h2>
+
+
+            <p>
+                {{project.short_description}}
+            </p>
+
+
+            <span class="project-category">
+                {{project.category}}
+            </span>
+
+
+
+            <div class="tech-list">
+
+                {% for tech in project.technologies.all %}
+
+                    <span>
+                        {{tech.name}}
+                    </span>
+
+                {% endfor %}
+
+            </div>
+
+
+
+            <div class="project-links">
+
+
+            {% if project.github_url %}
+
+                <a href="{{project.github_url}}">
+                    GitHub
+                </a>
+
+            {% endif %}
+
+
+
+            {% if project.demo_url %}
+
+                <a href="{{project.demo_url}}">
+                    Demo
+                </a>
+
+            {% endif %}
+
+
+            </div>
+
+
+        </article>
+
+
+    {% endfor %}
+    {% else %}
+
+
+    <div class="empty-projects">
+
+        <h2>
+            No Projects Found
+        </h2>
+
+        <p>
+            Try another category or check back later.
+        </p>
+
+</div>
+
+
     {% endif %}
-    {% if project.demo_url %}
-      <p>
-            <a href="{{ project.demo_url }}">Demo</a>
-       </p>
-    {% endif %}
-{% endfor %}
+
+
+    </div>
+
+
+</section>
+
 
 {% endblock %}

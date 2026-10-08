@@ -1,13 +1,84 @@
 {% extends "base.html" %}
 {% load static %}
-{% block content %}
-{% for skill in skills %}
-    <h3>{{skill.name}}</h3>
-    <p>Category: {{skill.category.name}}</p>
-    <p>Proficiency: {{ skill.proficiency }}%</p>
 
-   
-{% endfor%}
+{% block content %}
+
+<section class="skills-page">
+
+
+    <div class="skills-header">
+
+        <h1>
+            My Skills
+        </h1>
+
+        <p>
+            Technologies and skills I use in my development journey.
+        </p>
+
+    </div>
+
+
+
+    <div class="skills-grid">
+
+
+        {% for skill in skills %}
+
+
+        <article class="skill-card">
+
+
+            <div class="skill-info">
+
+                <h3>
+                    {{ skill.name }}
+                </h3>
+
+
+                <span>
+                    {{ skill.category.name }}
+                </span>
+
+            </div>
+
+
+
+            <div class="skill-progress">
+
+
+                <div class="progress-bar">
+
+
+                    <div 
+                    class="progress-fill"
+                    style="width: {{ skill.proficiency }}%;">
+                    
+                    </div>
+
+
+                </div>
+
+
+                <p>
+                    {{ skill.proficiency }}%
+                </p>
+
+
+            </div>
+
+
+
+        </article>
+
+
+        {% endfor %}
+
+
+    </div>
+
+
+</section>
 
 
 {% endblock %}
