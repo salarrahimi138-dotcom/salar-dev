@@ -3,7 +3,7 @@ from django.shortcuts import render , redirect , get_object_or_404
 from django.contrib.auth import login
 from django.contrib.auth import logout
 from .forms import LoginForm , SkillForm , ProjectForm , CertificateForm , LearningJourneyForm , PostForm
-from core.models import Project , Skill , Certificate , Post ,LearningJourney 
+from core.models import Project , Skill , Certificate , Post ,LearningJourney , DashboardIcon
 from django.contrib.auth.decorators import user_passes_test
 
 def is_admin(user):
@@ -31,11 +31,15 @@ def dashboard(request):
     skill_count = Skill.objects.count()
     certificate_count = Certificate.objects.count()
     post_count = Post.objects.count()
+    icons = DashboardIcon.objects.all().order_by("display_order")
+    learning_count = LearningJourney.objects.count()
     return render(request , "accounts/dashboard.html" , {
         "project_count":project_count , 
         "skill_count":skill_count , 
         "certificate_count":certificate_count ,
-        "post_count":post_count
+        "post_count":post_count,
+        "icons": icons,
+        "learning_count": learning_count,
     })
 
 

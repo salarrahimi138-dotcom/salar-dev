@@ -1,13 +1,94 @@
-<h1>Create Skill</h1>
+{% extends "base.html" %}
 
-<form method="post">
 
-    {% csrf_token %}
+{% block content %}
 
-    {{ form.as_p }}
 
-    <button type="submit">
-        Save Skill
-    </button>
+<section class="dashboard-page">
 
-</form>
+
+
+    <div class="dashboard-header">
+
+
+        <h1>
+            Create Skill
+        </h1>
+
+
+        <p>
+            Add a new technical skill to your portfolio.
+        </p>
+
+
+    </div>
+
+
+
+
+
+    <section class="dashboard-form-card">
+
+
+
+        <form method="post">
+
+
+            {% csrf_token %}
+
+
+
+            <div class="dashboard-form">
+
+
+                {{ form.as_p }}
+
+
+            </div>
+
+
+
+
+
+            <div class="dashboard-form-actions">
+
+
+
+                <button type="submit"
+                        class="dashboard-primary-btn">
+
+                    Save Skill
+
+                </button>
+
+
+
+
+
+                <a href="{% url 'dashboard_skills' %}"
+                   class="dashboard-cancel-btn">
+
+                    Cancel
+
+                </a>
+
+
+
+            </div>
+
+
+
+        </form>
+
+
+
+    </section>
+
+
+
+
+</section>
+
+
+
+{% endblock %}

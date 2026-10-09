@@ -1133,3 +1133,188 @@ Planned:
 
 **Salar.dev**
 Personal Developer Portfolio built with Django.
+
+# Salar.dev — Personal Developer Hub
+
+Salar.dev is a personal developer portfolio and content management platform built with Django.
+The goal of this project is to create a professional online identity where projects, skills, certificates, learning journey, and technical articles can be showcased in a modern and organized way.
+
+## 🚀 Features
+
+### 🌐 Public Website
+
+* Professional landing page
+* Hero section with personal introduction
+* Featured projects showcase
+* Skills overview with proficiency levels
+* Learning journey timeline
+* Certificates showcase
+* Blog system
+* Responsive design
+* Dark / Light mode support
+* Search interface
+* Custom error pages
+
+---
+
+## 🛠 Dashboard Management
+
+Salar.dev includes a custom dashboard for managing website content.
+
+### Project Management
+
+* Create projects
+* Update projects
+* Delete projects
+* Manage project information and images
+
+### Skills Management
+
+* Create skills
+* Update skills
+* Delete skills
+* Organize skills by category
+
+### Certificates Management
+
+* Add certificates
+* Edit certificates
+* Delete certificates
+* Upload certificate images
+
+### Learning Journey Management
+
+* Add learning milestones
+* Update learning progress
+* Manage learning status
+
+### Blog Management
+
+* Create posts
+* Update posts
+* Delete posts
+* Manage categories and tags
+
+---
+
+## 💻 Technologies
+
+### Backend
+
+* Python
+* Django
+
+### Frontend
+
+* HTML5
+* CSS3
+* JavaScript
+
+### Database
+
+* SQLite (Development)
+
+### Tools
+
+* Git & GitHub
+* VS Code
+
+---
+
+## 🎨 Design
+
+The project uses a custom design system including:
+
+* Modern card-based UI
+* Glass effects
+* Custom buttons
+* Dark/Light theme system
+* Responsive layouts
+* Interactive hover effects
+* Professional dashboard components
+
+---
+
+## 📂 Project Structure
+
+```
+Salar.dev/
+│
+├── config/
+│   └── Django configuration
+│
+├── core/
+│   └── Main application
+│
+├── templates/
+│   └── HTML templates
+│
+├── static/
+│   ├── CSS
+│   ├── JavaScript
+│   └── Assets
+│
+├── media/
+│   └── Uploaded files
+│
+└── manage.py
+```
+
+---
+
+## 🎯 Project Goals
+
+Salar.dev was created to:
+
+* Build a professional developer portfolio
+* Practice full-stack web development with Django
+* Create a real-world content management system
+* Showcase programming projects and learning progress
+* Prepare a production-ready personal website
+
+---
+
+## 📌 Current Status
+
+✅ Backend completed
+✅ Database models completed
+✅ Custom dashboard completed
+✅ CRUD operations completed
+✅ Main frontend pages completed
+✅ UI design system completed
+
+🚧 Remaining:
+
+* Authentication and profile system
+* Final responsive polish
+* Production deployment
+
+---
+
+## 🔮 Future Plans
+
+* User profile customization
+* Online deployment
+* More interactive features
+* Additional blog improvements
+* Continuous design improvements
+
+---
+
+## 👨‍💻 Author
+
+**Salar Rahimi**
+
+Developer interested in:
+
+* Python
+* Django
+* Web Development
+* Cyber Security
+* Artificial Intelligence
+
+---
+
+## 📄 License
+
+This project is created for educational and portfolio purposes.

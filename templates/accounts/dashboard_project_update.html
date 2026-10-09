@@ -1,13 +1,76 @@
-<h1>Update Project</h1>
+{% extends "base.html" %}
 
-<form method="post" enctype="multipart/form-data">
+{% block content %}
 
-    {% csrf_token %}
 
-    {{ form.as_p }}
+<section class="dashboard-page">
 
-    <button type="submit">
-        Update Project
-    </button>
 
-</form>
+    <div class="dashboard-header">
+
+
+        <h1>
+            Update Project
+        </h1>
+
+
+        <p>
+            Edit and update your project information.
+        </p>
+
+
+    </div>
+
+
+
+
+
+    <section class="dashboard-form-card">
+
+
+        <form method="post" enctype="multipart/form-data">
+
+
+            {% csrf_token %}
+
+
+            {{ form.as_p }}
+
+
+
+
+            <div class="dashboard-form-actions">
+
+
+                <button type="submit" class="dashboard-btn">
+
+                    Update Project
+
+                </button>
+
+
+
+                <a href="{% url 'dashboard_projects' %}"
+                   class="dashboard-cancel-btn">
+
+                    Cancel
+
+                </a>
+
+
+
+            </div>
+
+
+
+        </form>
+
+
+    </section>
+
+
+
+</section>
+
+
+{% endblock %}

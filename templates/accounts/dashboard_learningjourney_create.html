@@ -1,17 +1,127 @@
+{% extends "base.html" %}
 
-<h1>Add New Learning Journey</h1>
 
-<form method="post" enctype="multipart/form-data">
+{% block content %}
 
-    {% csrf_token %}
 
-    {{ form.as_p }}
 
-    <button type="submit">
-        Save LearningJourney
-    </button>
-    <a href="{% url 'dashboard_learningjourneys' %}">
-        Back to Learning Journey
-</a>
+<section class="dashboard-page">
 
-</form>
+
+
+
+
+    <div class="dashboard-header">
+
+
+        <h1>
+            Add New Learning Journey
+        </h1>
+
+
+        <p>
+            Add a new learning path and track your progress.
+        </p>
+
+
+    </div>
+
+
+
+
+
+
+
+    <section class="dashboard-form-card">
+
+
+
+
+
+        <form method="post">
+
+
+
+            {% csrf_token %}
+
+
+
+
+
+
+
+            <div class="dashboard-form">
+
+
+                {{ form.as_p }}
+
+
+            </div>
+
+
+
+
+
+
+
+            <div class="dashboard-form-actions">
+
+
+
+
+
+                <button type="submit"
+                        class="dashboard-primary-btn">
+
+
+                    Save Learning Journey
+
+
+                </button>
+
+
+
+
+
+
+
+                <a href="{% url 'dashboard_learningjourneys' %}"
+                   class="dashboard-cancel-btn">
+
+
+                    Back to Learning Journey
+
+
+                </a>
+
+
+
+
+
+            </div>
+
+
+
+
+
+        </form>
+
+
+
+
+
+
+    </section>
+
+
+
+
+
+
+</section>
+
+
+
+
+
+{% endblock %}

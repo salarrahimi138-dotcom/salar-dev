@@ -1,17 +1,127 @@
-<h1>Update Learning Journey </h1>
-
-<form method="post">
-
-    {% csrf_token %}
-
-    {{ form.as_p }}
-
-    <button type="submit">
-        Update Learning Journey
-    </button>
+{% extends "base.html" %}
 
 
-</form>
-    <a href="{% url 'dashboard_learningjourneys' %}">
-    Back to Learning Journeys
-</a>
+{% block content %}
+
+
+
+<section class="dashboard-page">
+
+
+
+
+
+    <div class="dashboard-header">
+
+
+        <h1>
+            Update Learning Journey
+        </h1>
+
+
+        <p>
+            Edit your learning path information and progress.
+        </p>
+
+
+    </div>
+
+
+
+
+
+
+
+    <section class="dashboard-form-card">
+
+
+
+
+
+        <form method="post">
+
+
+
+            {% csrf_token %}
+
+
+
+
+
+
+
+            <div class="dashboard-form">
+
+
+                {{ form.as_p }}
+
+
+            </div>
+
+
+
+
+
+
+
+            <div class="dashboard-form-actions">
+
+
+
+
+
+                <button type="submit"
+                        class="dashboard-primary-btn">
+
+
+                    Update Learning Journey
+
+
+                </button>
+
+
+
+
+
+
+
+                <a href="{% url 'dashboard_learningjourneys' %}"
+                   class="dashboard-cancel-btn">
+
+
+                    Back to Learning Journeys
+
+
+                </a>
+
+
+
+
+
+            </div>
+
+
+
+
+
+        </form>
+
+
+
+
+
+
+    </section>
+
+
+
+
+
+
+</section>
+
+
+
+
+
+{% endblock %}

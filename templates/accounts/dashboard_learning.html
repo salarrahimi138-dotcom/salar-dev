@@ -1,64 +1,280 @@
 {% extends "base.html" %}
 
+
 {% block content %}
 
-<h1>Manage Learning Journey</h1>
 
-<a href="{% url 'dashboard_learningjourney_create' %}">
-    Add New Learning Journey
-</a>
 
-<hr>
+<section class="dashboard-page">
 
-{% for item in learning_journeys %}
 
-<section>
 
-    <h2>
-        {{ item.title }}
-    </h2>
 
-    <p>
-        Skill:
-        {{ item.skill }}
-    </p>
 
-    <p>
-        Route:
-        {{ item.route_title }}
-    </p>
+    <div class="dashboard-header">
 
-    <p>
-        Provider:
-        {{ item.provider }}
-    </p>
 
-    <p>
-        Status:
-        {{ item.get_status_display }}
-    </p>
+        <h1>
+            Manage Learning Journey
+        </h1>
 
-    <p>
-        {{ item.explanation }}
-    </p>
-    <a href="{% url 'dashboard_learningjourney_update' item.id %}">
-         Edit
-    </a>
 
-    <a href="{% url 'dashboard_learningjourney_delete' item.id %}">
-        Delete
-    </a>
+        <p>
+            Track your learning progress and development path.
+        </p>
+
+
+    </div>
+
+
+
+
+
+
+
+    <section class="dashboard-management">
+
+
+
+
+
+        <div class="dashboard-form-actions">
+
+
+            <a href="{% url 'dashboard_learningjourney_create' %}"
+               class="dashboard-primary-btn">
+
+
+                Add New Learning Journey
+
+
+            </a>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="dashboard-list-grid">
+
+
+
+
+
+            {% for item in learning_journeys %}
+
+
+
+
+
+
+
+            <div class="dashboard-list-card">
+
+
+
+
+
+
+                <h2>
+                    {{ item.title }}
+                </h2>
+
+
+
+
+
+
+
+
+                <p>
+
+                    <strong>
+                        Skill:
+                    </strong>
+
+                    {{ item.skill }}
+
+                </p>
+
+
+
+
+
+
+
+                <p>
+
+                    <strong>
+                        Route:
+                    </strong>
+
+                    {{ item.route_title }}
+
+                </p>
+
+
+
+
+
+
+
+
+                <p>
+
+                    <strong>
+                        Provider:
+                    </strong>
+
+                    {{ item.provider }}
+
+                </p>
+
+
+
+
+
+
+
+
+
+                <p>
+
+                    <strong>
+                        Status:
+                    </strong>
+
+
+                    <span class="status-badge {{ item.status }}">
+
+                        {{ item.get_status_display }}
+
+                    </span>
+
+
+                </p>
+
+
+
+
+
+
+
+
+
+                {% if item.explanation %}
+
+                <p>
+                    {{ item.explanation }}
+                </p>
+
+                {% endif %}
+
+
+
+
+
+
+
+
+
+                <div class="dashboard-card-actions">
+
+
+
+
+
+                    <a href="{% url 'dashboard_learningjourney_update' item.id %}"
+                       class="dashboard-edit-btn">
+
+
+                        Edit
+
+
+                    </a>
+
+
+
+
+
+
+
+                    <a href="{% url 'dashboard_learningjourney_delete' item.id %}"
+                       class="dashboard-delete-btn">
+
+
+                        Delete
+
+
+                    </a>
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+            {% empty %}
+
+
+
+
+            <p>
+                No learning journey found.
+            </p>
+
+
+
+
+
+            {% endfor %}
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+    </section>
+
+
+
+
+
 
 </section>
 
-<hr>
 
-{% empty %}
 
-<p>
-    No learning journey found.
-</p>
 
-{% endfor %}
 
 {% endblock %}

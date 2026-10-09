@@ -1,64 +1,179 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
-<h1>Manage Projects</h1>
-<a href="{% url 'dashboard_project_create' %}">
-    Add New Project
-</a>
-<hr>
+<section class="dashboard-page">
 
-{% for project in projects %}
 
-<section>
+    <div class="dashboard-header">
 
-    <h2>
-        <a href="{% url 'projects_view' project.slug  %}">
-            {{ project.title }}
+        <h1>
+            Manage Projects
+        </h1>
+
+        <p>
+            Create, edit and manage your portfolio projects.
+        </p>
+
+    </div>
+
+
+
+
+
+    <div class="dashboard-toolbar">
+
+        <a href="{% url 'dashboard_project_create' %}" class="dashboard-btn">
+
+            + Add New Project
+
         </a>
-    </h2>
 
-    <p>
-        {{ project.short_description }}
-    </p>
+    </div>
 
-    <p>
-        Category:
-        {{ project.category }}
-    </p>
 
-    <p>
-        Technologies:
-    </p>
 
-    <ul>
-        {% for tech in project.technologies.all %}
-            <li>{{ tech.name }}</li>
+
+
+
+
+
+    <section class="dashboard-grid">
+
+
+
+        {% for project in projects %}
+
+
+
+        <article class="dashboard-item-card">
+
+
+
+            {% if project.image %}
+
+            <div class="dashboard-item-image">
+
+                <img src="{{ project.image.url }}"
+                     alt="{{ project.title }}">
+
+            </div>
+
+            {% endif %}
+
+
+
+
+
+
+            <div class="dashboard-item-content">
+
+
+                <h2>
+
+                    <a href="{% url 'projects_view' project.slug %}">
+
+                        {{ project.title }}
+
+                    </a>
+
+                </h2>
+
+
+
+
+                <p>
+
+                    {{ project.short_description }}
+
+                </p>
+
+
+
+
+                <p>
+
+                    Category:
+                    {{ project.category }}
+
+                </p>
+
+
+
+
+
+                <div class="dashboard-tags">
+
+
+                    {% for tech in project.technologies.all %}
+
+                        <span>
+                            {{ tech.name }}
+                        </span>
+
+
+                    {% endfor %}
+
+
+                </div>
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+            <div class="dashboard-item-actions">
+
+
+                <a href="{% url 'dashboard_project_update' project.id %}">
+
+                    Edit
+
+                </a>
+
+
+
+                <a href="{% url 'dashboard_project_delete' project.id %}">
+
+                    Delete
+
+                </a>
+
+
+            </div>
+
+
+
+
+        </article>
+
+
+
+
+        {% empty %}
+
+
+        <p>
+            No projects found.
+        </p>
+
+
         {% endfor %}
-    </ul>
 
-    <a href="{% url 'dashboard_project_update' project.id %}">
-        Edit
-    </a>
 
-    <a href="{% url 'dashboard_project_delete' project.id %}">
-        Delete
-    </a>
+
+    </section>
+
+
 
 </section>
-
-<hr>
-
-
-
-
-{% empty %}
-
-<p>
-    No projects found.
-</p>
-
-{% endfor %}
 
 
 {% endblock %}

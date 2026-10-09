@@ -1,6 +1,6 @@
 from django.contrib import admin 
 
-from .models import Category , Technology , Project , SkillCategory , Skill , LearningJourney , Certificate , Post , BlogCategory , Tag , About
+from .models import Category , Technology , Project , SkillCategory , Skill , LearningJourney , Certificate , Post , BlogCategory , Tag , About , DashboardIcon
 
 
 
@@ -66,3 +66,15 @@ admin.site.register(BlogCategory)
 @admin.register(About)
 class AboutAdmin(admin.ModelAdmin):
     list_display = ("title", "updated_at")
+    
+@admin.register(DashboardIcon)
+class DashboardIconAdmin(admin.ModelAdmin):
+
+    list_display = (
+        "name",
+        "display_order",
+    )
+
+    ordering = (
+        "display_order",
+    )

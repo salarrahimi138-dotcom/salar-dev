@@ -1,26 +1,177 @@
 {% extends "base.html" %}
+{% load static %}
+
 {% block content %}
-<h1>Dashboard</h1>
 
-<section>
-    <h2>Statistics</h2>
+<section class="dashboard-page">
 
-    <div>
-        <p>Projects: {{ project_count }}</p>
-        <p>Skills: {{ skill_count }}</p>
-        <p>Certificates: {{ certificate_count }}</p>
-        <p>Posts: {{ post_count }}</p>
+
+    <div class="dashboard-header">
+
+        <h1>
+            Dashboard
+        </h1>
+
+        <p>
+            Welcome back! Manage your portfolio content from one place.
+        </p>
+
     </div>
-</section>
-<section>
-    <h2>Management</h2>
 
-    <div>
-        <a href="{% url 'dashboard_projects' %}">Manage Projects</a>
-        <a href="{% url 'dashboard_skills' %}">Manage Skills</a>
-        <a href="{% url 'dashboard_certificates' %}">Manage Certificates</a>
-        <a href="{% url 'dashboard_learningjourneys' %}">Manage Learning Journey</a>
-        <a href="{% url 'dashboard_posts' %}">Manage Blog Posts</a>
-    </div>
+
+
+
+
+    <section class="dashboard-stats">
+
+
+        {% for icon in icons %}
+
+
+        <div class="dashboard-card fade-in">
+
+
+            <div class="dashboard-icon">
+
+                {% if icon.image %}
+
+                    <img src="{{ icon.image.url }}"
+                         alt="{{ icon.name }}">
+
+                {% endif %}
+
+            </div>
+
+
+
+            <div>
+
+                <h3>
+                    {{ icon.name }}
+                </h3>
+
+
+                {% if icon.name == "Projects" %}
+
+                    <span>
+                        {{ project_count }}
+                    </span>
+
+
+                {% elif icon.name == "Skills" %}
+
+                    <span>
+                        {{ skill_count }}
+                    </span>
+
+
+                {% elif icon.name == "Certificates" %}
+
+                    <span>
+                        {{ certificate_count }}
+                    </span>
+
+
+                {% elif icon.name == "Learning Journey" %}
+
+                    <span>
+                        {{ learning_count }}
+                    </span>
+
+
+                {% elif icon.name == "Blog Posts" %}
+
+                    <span>
+                        {{ post_count }}
+                    </span>
+
+
+                {% endif %}
+
+
+            </div>
+
+
+        </div>
+
+
+        {% endfor %}
+
+
+    </section>
+
+
+
+
+
+
+
+
+    <section class="dashboard-management">
+
+
+        <h2>
+            Content Management
+        </h2>
+
+
+
+
+        <div class="dashboard-actions">
+
+
+
+            {% for icon in icons %}
+
+
+            <a href="{% url icon.link %}" 
+               class="management-card fade-in">
+
+
+
+                <div class="management-icon">
+
+                    {% if icon.image %}
+
+                        <img src="{{ icon.image.url }}"
+                             alt="{{ icon.name }}">
+
+                    {% endif %}
+
+                </div>
+
+
+
+
+                <div>
+
+                    <h3>
+                        {{ icon.name }}
+                    </h3>
+
+
+                    <p>
+                        Manage {{ icon.name|lower }}
+                    </p>
+
+                </div>
+
+
+
+            </a>
+
+
+            {% endfor %}
+
+
+
+        </div>
+
+
+    </section>
+
+
 </section>
+
+
 {% endblock %}

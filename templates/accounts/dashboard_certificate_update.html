@@ -1,17 +1,125 @@
-<h1>Update Certificate</h1>
-
-<form method="post" enctype="multipart/form-data">
-
-    {% csrf_token %}
-
-    {{ form.as_p }}
-
-    <button type="submit">
-        Update Certificate
-    </button>
+{% extends "base.html" %}
 
 
-</form>
-    <a href="{% url 'dashboard_certificates' %}">
-    Back to Certificates
-</a>
+{% block content %}
+
+
+
+<section class="dashboard-page">
+
+
+
+
+
+    <div class="dashboard-header">
+
+
+        <h1>
+            Update Certificate
+        </h1>
+
+
+        <p>
+            Edit certificate information and update your achievement.
+        </p>
+
+
+    </div>
+
+
+
+
+
+
+
+    <section class="dashboard-form-card">
+
+
+
+
+
+        <form method="post" enctype="multipart/form-data">
+
+
+
+            {% csrf_token %}
+
+
+
+
+
+            <div class="dashboard-form">
+
+
+                {{ form.as_p }}
+
+
+            </div>
+
+
+
+
+
+
+
+            <div class="dashboard-form-actions">
+
+
+
+
+
+                <button type="submit"
+                        class="dashboard-primary-btn">
+
+
+                    Update Certificate
+
+
+                </button>
+
+
+
+
+
+
+
+                <a href="{% url 'dashboard_certificates' %}"
+                   class="dashboard-cancel-btn">
+
+
+                    Back to Certificates
+
+
+                </a>
+
+
+
+
+
+            </div>
+
+
+
+
+
+        </form>
+
+
+
+
+
+
+    </section>
+
+
+
+
+
+
+</section>
+
+
+
+
+
+{% endblock %}

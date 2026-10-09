@@ -1,14 +1,70 @@
+{% extends "base.html" %}
 
-<h1>Create Project</h1>
+{% block content %}
 
-<form method="post" enctype="multipart/form-data">
 
-    {% csrf_token %}
+<section class="dashboard-page">
 
-    {{ form.as_p }}
 
-    <button type="submit">
-        Save Project
-    </button>
+    <div class="dashboard-header">
 
-</form>
+        <h1>
+            Create Project
+        </h1>
+
+        <p>
+            Add a new project to your portfolio.
+        </p>
+
+    </div>
+
+
+
+
+
+    <section class="dashboard-form-card">
+
+
+        <form method="post" enctype="multipart/form-data">
+
+
+            {% csrf_token %}
+
+
+            {{ form.as_p }}
+
+
+
+            <div class="dashboard-form-actions">
+
+
+                <button type="submit" class="dashboard-btn">
+
+                    Save Project
+
+                </button>
+
+
+
+                <a href="{% url 'dashboard_projects' %}" 
+                   class="dashboard-cancel-btn">
+
+                    Cancel
+
+                </a>
+
+
+            </div>
+
+
+
+        </form>
+
+
+    </section>
+
+
+</section>
+
+
+{% endblock %}

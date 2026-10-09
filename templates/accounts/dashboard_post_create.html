@@ -1,17 +1,127 @@
+{% extends "base.html" %}
 
-<h1>Add New Blog/Post </h1>
 
-<form method="post" enctype="multipart/form-data">
+{% block content %}
 
-    {% csrf_token %}
 
-    {{ form.as_p }}
 
-    <button type="submit">
-        Save Blog/Post
-    </button>
-    <a href="{% url 'dashboard_posts' %}">
-    Back to Blog/Post
-</a>
+<section class="dashboard-page">
 
-</form>
+
+
+
+
+    <div class="dashboard-header">
+
+
+        <h1>
+            Add New Blog Post
+        </h1>
+
+
+        <p>
+            Create a new article and share your knowledge.
+        </p>
+
+
+    </div>
+
+
+
+
+
+
+
+    <section class="dashboard-form-card">
+
+
+
+
+
+        <form method="post" enctype="multipart/form-data">
+
+
+
+            {% csrf_token %}
+
+
+
+
+
+
+
+            <div class="dashboard-form">
+
+
+                {{ form.as_p }}
+
+
+            </div>
+
+
+
+
+
+
+
+            <div class="dashboard-form-actions">
+
+
+
+
+
+                <button type="submit"
+                        class="dashboard-primary-btn">
+
+
+                    Save Blog Post
+
+
+                </button>
+
+
+
+
+
+
+
+                <a href="{% url 'dashboard_posts' %}"
+                   class="dashboard-cancel-btn">
+
+
+                    Back to Blog Posts
+
+
+                </a>
+
+
+
+
+
+            </div>
+
+
+
+
+
+        </form>
+
+
+
+
+
+
+    </section>
+
+
+
+
+
+
+</section>
+
+
+
+
+
+{% endblock %}

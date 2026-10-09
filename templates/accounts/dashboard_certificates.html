@@ -1,61 +1,220 @@
 {% extends "base.html" %}
 
+
 {% block content %}
 
-<h1>Manage Certificates</h1>
 
-<a href="{% url 'dashboard_certificate_create' %}">
-    Add New Certificate
-</a>
 
-<hr>
+<section class="dashboard-page">
 
-{% for certificate in certificates %}
 
-<section>
 
-    <h2>
-        {{ certificate.title }}
-    </h2>
+    <div class="dashboard-header">
 
-    <p>
-        Provider:
-        {{ certificate.provider }}
-    </p>
 
-    <p>
-        Issue Date:
-        {{ certificate.issue_date }}
-    </p>
+        <h1>
+            Manage Certificates
+        </h1>
 
-    <p>
-        Description:
-        {{ certificate.description }}
-    </p>
 
-    {% if certificate.certificate_url %}
-        <a href="{{ certificate.certificate_url }}">
-            View Certificate
-        </a>
-    {% endif %}
-    <a href="{% url 'dashboard_certificate_update' certificate.id %}">
-    Edit
-</a>
+        <p>
+            Manage your certificates and achievements.
+        </p>
 
-<a href="{% url 'dashboard_certificate_delete' certificate.id %}">
-    Delete
-</a>
+
+    </div>
+
+
+
+
+
+
+    <section class="dashboard-management">
+
+
+
+        <div class="dashboard-form-actions">
+
+
+            <a href="{% url 'dashboard_certificate_create' %}"
+               class="dashboard-primary-btn">
+
+                Add New Certificate
+
+            </a>
+
+
+        </div>
+
+
+
+
+
+        <div class="dashboard-list-grid">
+
+
+
+            {% for certificate in certificates %}
+
+
+
+
+
+            <div class="dashboard-list-card">
+
+
+
+                {% if certificate.image %}
+
+
+                    <img src="{{ certificate.image.url }}"
+                         alt="{{ certificate.title }}"
+                         class="dashboard-card-image">
+
+
+                {% endif %}
+
+
+
+
+
+
+                <h2>
+                    {{ certificate.title }}
+                </h2>
+
+
+
+                <p>
+
+                    <strong>
+                        Provider:
+                    </strong>
+
+                    {{ certificate.provider }}
+
+                </p>
+
+
+
+
+
+                <p>
+
+                    <strong>
+                        Issue Date:
+                    </strong>
+
+                    {{ certificate.issue_date }}
+
+                </p>
+
+
+
+
+
+
+                <p>
+
+                    {{ certificate.description }}
+
+                </p>
+
+
+
+
+
+
+
+                {% if certificate.certificate_url %}
+
+
+                <a href="{{ certificate.certificate_url }}"
+                   target="_blank"
+                   class="dashboard-link-btn">
+
+
+                    View Certificate
+
+
+                </a>
+
+
+                {% endif %}
+
+
+
+
+
+
+
+                <div class="dashboard-card-actions">
+
+
+
+                    <a href="{% url 'dashboard_certificate_update' certificate.id %}"
+                       class="dashboard-edit-btn">
+
+                        Edit
+
+                    </a>
+
+
+
+
+
+                    <a href="{% url 'dashboard_certificate_delete' certificate.id %}"
+                       class="dashboard-delete-btn">
+
+                        Delete
+
+                    </a>
+
+
+
+                </div>
+
+
+
+
+
+            </div>
+
+
+
+
+
+            {% empty %}
+
+
+
+            <p>
+                No certificates found.
+            </p>
+
+
+
+            {% endfor %}
+
+
+
+
+
+        </div>
+
+
+
+
+
+    </section>
+
+
+
+
 
 </section>
 
-<hr>
 
-{% empty %}
 
-<p>
-    No certificates found.
-</p>
-
-{% endfor %}
 
 {% endblock %}

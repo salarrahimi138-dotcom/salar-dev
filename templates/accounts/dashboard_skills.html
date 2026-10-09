@@ -2,46 +2,137 @@
 
 {% block content %}
 
-<h1>Manage Skills</h1>
 
-<a href="{% url 'dashboard_skill_create' %}">
-    Add New Skill
-</a>
+<section class="dashboard-page">
 
-<hr>
 
-{% for skill in skills %}
+    <div class="dashboard-header">
 
-<section>
+        <h1>
+            Manage Skills
+        </h1>
 
-    <h2>
-        {{ skill.name }}
-    </h2>
 
-    <p>
-        Category:
-        {{ skill.category }}
-    </p>
+        <p>
+            Manage your technical skills and proficiency levels.
+        </p>
 
-    <p>
-        Proficiency:
-        {{ skill.proficiency }}
-    </p>
-     <a href="{% url 'dashboard_skill_update' skill.id %}">
-        Edit
-    </a>
-    <a href="{% url 'dashboard_skill_delete' skill.id %}">
-        Delete
-    </a>
 
-<hr>
+        <a href="{% url 'dashboard_skill_create' %}"
+           class="dashboard-primary-btn">
 
-{% empty %}
+            + Add New Skill
 
-<p>
-    No skills found.
-</p>
+        </a>
 
-{% endfor %}
+    </div>
+
+
+
+
+
+    <section class="dashboard-list">
+
+
+        {% for skill in skills %}
+
+
+        <div class="dashboard-item-card">
+
+
+            <div class="dashboard-item-header">
+
+
+                <h2>
+                    {{ skill.name }}
+                </h2>
+
+
+                <span>
+                    {{ skill.proficiency }}%
+                </span>
+
+
+            </div>
+
+
+
+
+            <p>
+                Category:
+                <strong>
+                    {{ skill.category }}
+                </strong>
+            </p>
+
+
+
+
+
+            <div class="skill-progress">
+
+
+                <div class="skill-progress-bar">
+
+                    <span style="width: {{ skill.proficiency }}%;">
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+            <div class="dashboard-item-actions">
+
+
+                <a href="{% url 'dashboard_skill_update' skill.id %}"
+                   class="dashboard-edit-btn">
+
+                    Edit
+
+                </a>
+
+
+
+                <a href="{% url 'dashboard_skill_delete' skill.id %}"
+                   class="dashboard-delete-btn">
+
+                    Delete
+
+                </a>
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+        {% empty %}
+
+
+        <p>
+            No skills found.
+        </p>
+
+
+        {% endfor %}
+
+
+
+    </section>
+
+
+
+</section>
+
+
 
 {% endblock %}

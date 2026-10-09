@@ -121,3 +121,12 @@ class About(models.Model):
 
     def __str__(self):
         return self.title
+    
+class DashboardIcon(models.Model):
+    name = models.CharField(max_length=50)
+    image = models.ImageField(upload_to="dashboard_icons/", blank=True)
+    link = models.CharField(max_length=100,blank=True)
+    display_order = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return self.name

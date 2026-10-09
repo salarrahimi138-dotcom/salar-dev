@@ -1,17 +1,125 @@
+{% extends "base.html" %}
 
-<h1>Add New Certificate</h1>
 
-<form method="post" enctype="multipart/form-data">
+{% block content %}
 
-    {% csrf_token %}
 
-    {{ form.as_p }}
 
-    <button type="submit">
-        Save Certificate
-    </button>
-    <a href="{% url 'dashboard_certificates' %}">
-    Back to Certificates
-</a>
+<section class="dashboard-page">
 
-</form>
+
+
+
+
+    <div class="dashboard-header">
+
+
+        <h1>
+            Add New Certificate
+        </h1>
+
+
+        <p>
+            Add a new certificate or achievement to your portfolio.
+        </p>
+
+
+    </div>
+
+
+
+
+
+
+
+    <section class="dashboard-form-card">
+
+
+
+
+
+        <form method="post" enctype="multipart/form-data">
+
+
+
+            {% csrf_token %}
+
+
+
+
+
+            <div class="dashboard-form">
+
+
+                {{ form.as_p }}
+
+
+            </div>
+
+
+
+
+
+
+
+            <div class="dashboard-form-actions">
+
+
+
+
+
+                <button type="submit"
+                        class="dashboard-primary-btn">
+
+
+                    Save Certificate
+
+
+                </button>
+
+
+
+
+
+
+
+                <a href="{% url 'dashboard_certificates' %}"
+                   class="dashboard-cancel-btn">
+
+
+                    Back to Certificates
+
+
+                </a>
+
+
+
+
+
+            </div>
+
+
+
+
+
+        </form>
+
+
+
+
+
+
+    </section>
+
+
+
+
+
+
+</section>
+
+
+
+
+
+{% endblock %}
