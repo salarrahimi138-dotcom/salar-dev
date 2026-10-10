@@ -2,9 +2,10 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render , redirect , get_object_or_404
 from django.contrib.auth import login
 from django.contrib.auth import logout
-from .forms import LoginForm , SkillForm , ProjectForm , CertificateForm , LearningJourneyForm , PostForm
+from .forms import LoginForm , SignupForm , SkillForm , ProjectForm , CertificateForm , LearningJourneyForm , PostForm , ProfileForm
 from core.models import Project , Skill , Certificate , Post ,LearningJourney , DashboardIcon
 from django.contrib.auth.decorators import user_passes_test
+from .models import Profile
 
 def is_admin(user):
     return user.is_staff
@@ -19,6 +20,47 @@ def login_view(request):
             return redirect("home")
             
     return render(request, "accounts/login.html" ,{"form":form})
+
+@login_required
+def profile_view(request):
+
+    profile, created = Profile.objects.get_or_create(
+        user=request.user
+    )
+
+    return render(
+        request,
+        "accounts/profile.html",
+        {
+            "profile": profile
+        }
+    )
+
+@login_required
+def profile_edit(request):
+    profile, created = Profile.objects.get_or_create(
+        user=request.user)
+    
+    if request.method == "POST":
+        form = ProfileForm(
+            request.POST,
+            request.FILES,
+            instance=profile
+        )
+        if form.is_valid():
+            form.save()
+            return redirect("profile")
+    else:
+        form = ProfileForm(
+            instance=profile
+        )
+    return render(
+        request,
+        "accounts/profile_edit.html",
+        {
+            "form": form
+        }
+    )
 
 def logout_view(request):
     logout(request)
@@ -313,4 +355,17 @@ def dashboard_post_delete(request, id):
         return redirect("dashboard_posts")
     return render(request, "accounts/dashboard_post_delete.html", {
         "post": post
+    })
+def signup_view(request):
+    if request.method == "POST":
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("home")
+    else:
+
+        form = SignupForm()
+    return render(request, "accounts/signup.html", {
+        "form": form
     })

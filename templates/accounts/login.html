@@ -1,12 +1,80 @@
 {% extends "base.html" %}
+
+
 {% block content %}
-<h1>Login</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">
-        Login
-    </button>
-</form>
+
+
+<section class="auth-page">
+
+
+    <div class="auth-card">
+
+
+        <div class="auth-header">
+
+            <h1>
+                Welcome Back
+            </h1>
+
+            <p>
+                Login to your Salar.dev account
+            </p>
+
+        </div>
+
+
+
+        <form method="post">
+
+
+            {% csrf_token %}
+
+
+            <div class="auth-form">
+
+
+                {{ form.as_p }}
+
+
+            </div>
+
+
+
+
+            <button type="submit" class="auth-button">
+
+                Login
+
+            </button>
+
+
+
+        </form>
+
+
+
+        <div class="auth-footer">
+
+
+            <p>
+
+                Don't have an account?
+
+                <a href="{% url 'signup' %}">
+                    Sign Up
+                </a>
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+
+</section>
+
 
 {% endblock %}

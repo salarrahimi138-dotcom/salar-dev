@@ -1,11 +1,38 @@
 from django import forms
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm , UserCreationForm
+from django.contrib.auth.models import User
 from core.models import Skill  , Project , Certificate , LearningJourney , Post
+from .models import Profile
 
 
 class LoginForm(AuthenticationForm):
     pass
 
+
+class ProfileForm(forms.ModelForm):
+
+    class Meta:
+        model = Profile
+        fields = [
+            "image",
+            "bio",
+        ]
+        widgets = {
+            "bio": forms.Textarea(attrs={
+                    "rows": 5,
+                    "placeholder": "Tell something about yourself..."})
+        }
+
+
+class SignupForm(UserCreationForm):
+
+    class Meta:
+        model = User
+        fields = [
+            "username",
+            "password1",
+            "password2",
+        ]
 
 class SkillForm(forms.ModelForm):
 

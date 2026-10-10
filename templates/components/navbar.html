@@ -56,6 +56,7 @@
 
 
 
+
     <div class="sns-actions">
 
 
@@ -93,7 +94,6 @@
                 </svg>
 
 
-
                 <div class="theme-switch__circle-container">
 
                     <div class="theme-switch__sun-moon-container">
@@ -120,7 +120,9 @@
 
 
 
-        <!-- Search Box -->
+
+
+        <!-- Search -->
 
 
         <form action="{% url 'search' %}" method="GET">
@@ -165,9 +167,7 @@
 
                         stroke-width="32">
 
-
                         </path>
-
 
 
                         <path 
@@ -184,9 +184,7 @@
 
                         d="M338.29 338.29L448 448">
 
-
                         </path>
-
 
 
                     </svg>
@@ -206,12 +204,45 @@
 
 
 
+
         {% if request.user.is_authenticated %}
+
+
+
+            <!-- Profile Avatar -->
+
+            <a href="{% url 'profile' %}" class="navbar-profile">
+
+
+                {% if request.user.profile.image %}
+
+
+                    <img 
+                    src="{{ request.user.profile.image.url }}"
+                    alt="Profile Image">
+
+
+                {% else %}
+
+
+                    <span>
+                        {{ request.user.username|first|upper }}
+                    </span>
+
+
+                {% endif %}
+
+
+            </a>
+
+
+
 
 
             <a href="{% url 'dashboard' %}">
                 Dashboard
             </a>
+
 
 
             <a href="{% url 'logout' %}">
@@ -220,7 +251,10 @@
 
 
 
+
+
         {% else %}
+
 
 
             <a href="{% url 'login' %}">
@@ -228,7 +262,7 @@
             </a>
 
 
-            <a href="#">
+            <a href="{% url 'signup' %}">
                 Signup
             </a>
 
