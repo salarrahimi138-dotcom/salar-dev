@@ -1,137 +1,61 @@
 {% extends "base.html" %}
 
-
 {% block content %}
-
 
 <section class="dashboard-page">
 
-
     <div class="dashboard-header">
-
-        <h1>
-            Edit Profile
-        </h1>
-
-        <p>
-            Customize your developer identity
-        </p>
-
+        <h1>Edit Profile</h1>
+        <p>Customize your developer identity</p>
     </div>
-
-
 
     <section class="profile-edit-card">
 
-
-        <form method="POST"
-              enctype="multipart/form-data">
-
+        <form method="POST" enctype="multipart/form-data">
 
             {% csrf_token %}
 
-
-
             <div class="profile-upload-box">
 
-
                 <div class="profile-image-preview">
-
-
                     {% if request.user.profile.image %}
-
-
                         <img src="{{ request.user.profile.image.url }}"
                              alt="{{ request.user.username }}">
-
-
                     {% else %}
-
-
                         <div class="profile-placeholder">
-
                             {{ request.user.username|first|upper }}
-
                         </div>
-
-
                     {% endif %}
-
-
                 </div>
-
-
-
 
                 <div class="profile-upload-field">
-
-
-                    <label>
-                        Profile Image
-                    </label>
-
-
+                    <label>Profile Image</label>
                     {{ form.image }}
-
-
                 </div>
 
-
             </div>
-
-
-
-
 
             <div class="profile-field">
-
-
-                <label>
-                    Bio
-                </label>
-
-
+                <label>Bio</label>
                 {{ form.bio }}
-
-
             </div>
-
-
-
-
 
             <div class="dashboard-form-actions">
 
-
-                <button type="submit"
-                        class="button">
-
-                    Save Changes
-
+                <button type="submit" class="edit-profile-btn">
+                    <span>Save Changes</span>
                 </button>
 
-
-
-
-                <a href="{% url 'profile' %}"
-                   class="dashboard-cancel-btn">
-
+                <a href="{% url 'profile' %}" class="dashboard-cancel-btn">
                     Cancel
-
                 </a>
-
 
             </div>
 
-
-
         </form>
-
 
     </section>
 
-
 </section>
-
 
 {% endblock %}

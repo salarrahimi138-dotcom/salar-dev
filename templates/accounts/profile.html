@@ -1,97 +1,48 @@
 {% extends "base.html" %}
 
-
 {% block content %}
-
 
 <section class="dashboard-page">
 
-
     <div class="dashboard-header">
-
-        <h1>
-            My Profile
-        </h1>
-
-        <p>
-            Manage your developer identity
-        </p>
-
+        <h1>My Profile</h1>
+        <p>Manage your developer identity</p>
     </div>
-
-
 
     <section class="dashboard-form-card profile-card">
 
-
         <div class="profile-image-box">
-
-
             {% if profile.image %}
-
-                <img src="{{ profile.image.url }}"
-                     alt="{{ profile.user.username }}">
-
+                <img src="{{ profile.image.url }}" alt="{{ profile.user.username }}">
             {% else %}
-
                 <div class="profile-placeholder">
-
                     {{ profile.user.username|first|upper }}
-
                 </div>
-
             {% endif %}
-
-
         </div>
-
-
-
 
         <div class="profile-info">
 
+            <h2>{{ profile.user.username }}</h2>
 
-            <h2>
-                {{ profile.user.username }}
-            </h2>
-
-
-            <p>
-                {{ profile.bio|default:"No bio added yet." }}
-            </p>
-
-
+            <p>{{ profile.bio|default:"No bio added yet." }}</p>
 
             <div class="dashboard-form-actions">
 
-
-                <a href="{% url 'profile_edit' %}" 
-                   class="button">
-
-                    Edit Profile
-
+                <a href="{% url 'profile_edit' %}" class="edit-profile-btn">
+                    <span>Edit Profile</span>
                 </a>
 
-
-                <a href="{% url 'home' %}" 
-                   class="dashboard-cancel-btn">
-
+                <a href="{% url 'home' %}" class="dashboard-cancel-btn">
                     Back Home
-
                 </a>
-
 
             </div>
 
-
         </div>
-
-
 
     </section>
 
-
 </section>
-
 
 {% endblock %}

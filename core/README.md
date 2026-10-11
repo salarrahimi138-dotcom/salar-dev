@@ -1,1391 +1,431 @@
-# Salar.dev
+# Salar.dev — Personal Developer Hub
 
-Salar.dev is a personal developer portfolio platform built with Django.
+## Overview
 
-The goal of this project is to create a professional digital identity where I can showcase my skills, projects, learning journey, certificates, and technical experiences.
+Salar.dev is my final project (Capstone) for **CS50's Web Programming with Python and JavaScript**.
 
-This project was developed as the final project for CS50 Web Programming with Python and JavaScript.
+It is a personal developer platform built with Django. The goal of this project is to create a professional developer identity where I can introduce myself, showcase my projects, display my skills and certificates, share my learning journey, and publish technical blog posts.
+
+Unlike a simple static portfolio website, Salar.dev is a complete full-stack web application. All content is stored dynamically using Django models and can be managed through a custom dashboard without manually editing source code.
+
+The project has two main parts:
+
+- **Public Website:** Visitors can explore my projects, skills, certificates, learning journey, and blog content.
+- **Private Dashboard:** A custom management system where I can create, edit, and delete website content.
+
 
 ---
 
-## Project Vision
+# Distinctiveness and Complexity
 
-The main idea behind Salar.dev was to build more than a simple portfolio website.
+Salar.dev is different from previous CS50W projects because it is not an e-commerce website, social network, email client, or encyclopedia.
 
-The project focuses on:
+The idea behind this project was to build a personal developer management platform that combines a professional portfolio website with a custom content management system.
 
-- Professional developer presentation
-- Clean and scalable Django architecture
-- Modern UI/UX design
-- Content management through a custom dashboard
-- Future expansion with advanced web features
+The complexity of this project comes from combining several different systems:
 
----
-
-# Development Journey
-
-The project was developed step by step through multiple development phases.
-
-Each phase focused on learning, implementing, improving, and refining different parts of the application.
-
----
-
-# Phase 1 — Project Foundation
-
-## Initial Setup
-
-The project started by creating the Django foundation.
-
-Implemented:
-
-- Django project configuration
-- Application structure
-- Static files configuration
-- Template system
-- Base layout creation
-- Database configuration
-
-Project structure:
-# Phase 2 — Portfolio Core Development
-
-After creating the project foundation, the main portfolio sections were developed.
-
-Implemented pages:
-
-## Home Page
-
-Created the main landing page including:
-
-- Featured projects
-- Developer introduction
-- Portfolio presentation structure
+- A complete Django backend architecture
+- Multiple related database models
+- Dynamic portfolio content
+- Authentication system
+- User profiles
+- Custom dashboard
+- CRUD management system
+- Responsive frontend design
+- JavaScript interactions
+- Modern UI components
 
 
-## About Page
+The project includes several database models:
 
-Implemented:
-
-- Personal introduction
-- Developer background
-- Career information structure
-
-
-## Projects Section
-
-Created the project showcase system.
-
-Features:
-
-- Project listing
-- Project details page
-- Categories
+- Projects
+- Project categories
 - Technologies
-- GitHub links
-- Demo links
-- Project images
-- Search functionality
-- Filtering system
+- Skills
+- Certificates
+- Learning Journey
+- Blog categories
+- Blog posts
+- User profiles
 
 
-## Skills Section
+The dashboard allows managing website content without modifying the source code. It includes:
 
-Implemented skill management structure:
-
-- Skill categories
-- Skill levels
-- Technology presentation
-
-
-## Learning Journey
-
-Created a learning timeline system:
-
-Including:
-
-- Courses
-- Learning progress
-- Providers
-- Status tracking
-
-
-## Certificates
-
-Implemented certificate showcase:
-
-Features:
-
-- Certificate title
-- Provider
-- Date
-- Display ordering
-
-# Phase 3 — Authentication and Dashboard System
-
-The next stage focused on creating a private management system.
-
-## Authentication
-
-Implemented:
-
-- User login
-- Logout functionality
-- Authentication protection
-- Admin-only access
-
-
-## Custom Dashboard
-
-Created a custom dashboard instead of relying only on Django Admin.
-
-Dashboard features:
-
+- Statistics overview
 - Project management
-- Skill management
+- Skills management
 - Certificate management
 - Learning Journey management
 - Blog management
-- Statistics overview
 
 
-## CRUD Management
+Each management section supports full CRUD functionality:
 
-Implemented custom CRUD operations:
-
-Create:
-- Add projects
-- Add skills
-- Add certificates
-- Add learning records
-- Add blog posts
+- Create
+- Read
+- Update
+- Delete
 
 
-Read:
-- Display management lists
+---
+
+# Features
+
+## Public Website
+
+The public side includes:
+
+- Home page
+- About page
+- Projects page
+- Project details page
+- Skills page
+- Certificates page
+- Learning Journey page
+- Blog list
+- Blog details
+- Search system
 
 
-Update:
-- Edit existing content
+## Dashboard
+
+The custom dashboard includes:
+
+- Content statistics
+- Dynamic dashboard icons
+- Project CRUD
+- Skills CRUD
+- Certificates CRUD
+- Learning Journey CRUD
+- Blog CRUD
 
 
-Delete:
-- Remove content with confirmation pages
+## Authentication and Profile
 
-# Phase 4 — Professional UI Development
+The account system includes:
 
-The frontend was redesigned to create a modern developer portfolio experience.
-
-Implemented Design System:
-
-## Global CSS Foundation
-
-Created:
-
-- Design tokens
-- Color system
-- Typography system
-- Spacing system
-- Responsive foundation
+- Signup
+- Login
+- Logout
+- Automatic profile creation
+- Profile editing
+- Profile image upload
 
 
-## Components
+## Additional Features
 
-Developed reusable components:
+The project also includes:
 
-### Buttons
-
-- Primary buttons
-- Secondary buttons
-- Hover states
-- Interaction effects
-
-
-### Cards
-
-Implemented:
-
-- Project cards
-- Skill cards
-- Certificate cards
-- Blog cards
-- Glass card style
+- Dark/light theme
+- LocalStorage theme saving
+- Responsive design
+- Custom loading page
+- Custom animations
+- Search functionality
+- Custom 404, 403, and 500 error pages
 
 
-### Tags and Badges
+---
 
-Used for:
+# Technologies
 
-- Technologies
-- Categories
-- Status indicators
-
-
-## Navigation System
-
-Created a custom professional navbar:
-
-Features:
-
-- Modern rounded layout
-- Authentication-based actions
-- Active states
-- Hover animations
-- Custom Salar.dev branding
-
-
-## Responsive Preparation
-
-Prepared layouts for:
-
-- Desktop
-- Tablet
-- Mobile
-
-
-# Current Status
-
-Completed:
-
-✅ Django foundation  
-✅ Portfolio pages  
-✅ Project management system  
-✅ Authentication system  
-✅ Custom dashboard  
-✅ CRUD operations  
-✅ Blog structure  
-✅ Professional CSS system  
-✅ Responsive foundation  
-✅ Custom navigation system  
-
-
-# Future Improvements
-
-Planned:
-
-- Professional hero section
-- Personal profile image integration
-- Bilingual support
-- Language switcher
-- Signup system
-- Mobile navigation
-- Advanced dashboard UI
-- Security review
-- Performance optimization
-- Deployment preparation
-
-
-# Technologies Used
-
-Backend:
+## Backend
 
 - Python
 - Django
+- SQLite
 
-Frontend:
+
+## Frontend
 
 - HTML
 - CSS
 - JavaScript
 
-Database:
 
-- SQLite (development)
+## Resources Used
 
-Tools:
+During development, I used:
 
-- Git
-- GitHub
-- VS Code
+- Django Documentation
+- MDN Web Docs
+- Technical articles
+- Google searches and research
+- Professional website examples
 
 
-# Project Goal
+For UI inspiration:
 
-Salar.dev represents my journey as a developer.
+- Uiverse.io
+- 3dicons.so
 
-The project continues to improve through learning, testing, feedback, and real-world development practices.
-
-# Phase 4 — Professional UI Development
-
-The frontend was redesigned to create a modern developer portfolio experience.
-
-Implemented Design System:
-
-## Global CSS Foundation
-
-Created:
-
-* Design tokens
-* Color system
-* Typography system
-* Spacing system
-* Responsive foundation
-
-## Components
-
-Developed reusable components:
-
-### Buttons
-
-* Primary buttons
-* Secondary buttons
-* Hover states
-* Interaction effects
-
-### Cards
-
-Implemented:
-
-* Project cards
-* Skill cards
-* Certificate cards
-* Blog cards
-* Glass card style
-
-### Tags and Badges
-
-Used for:
-
-* Technologies
-* Categories
-* Status indicators
-
-## Navigation System
-
-Created a custom professional navbar:
-
-Features:
-
-* Modern rounded layout
-* Authentication-based actions
-* Active states
-* Hover animations
-* Custom Salar.dev branding
-
-## Day 12 — Landing Page & UI Refinement
-
-The focus moved toward transforming the portfolio into a professional developer landing page.
-
-Completed:
-
-* Reviewed and optimized the existing design system
-* Prepared the Home page structure for a modern portfolio layout
-* Planned the Hero section architecture
-* Integrated existing UI components for future sections
-* Improved the project presentation strategy using reusable components
-
-The next UI improvements include:
-
-* Professional Hero section
-* Personal profile image integration
-* Featured project showcase redesign
-* Skills and Learning Journey previews
-* Final visual polish and user experience improvements
-
-
-# Day 12 — Landing Page & UI Refinement
-
-The focus moved toward transforming the portfolio into a professional developer landing page.
-
-Completed:
-
-* Reviewed and optimized the existing design system
-* Prepared the Home page structure for a modern portfolio layout
-* Implemented the Hero section with a modern developer introduction
-* Added developer branding presentation using glass card UI
-* Integrated technology tags and visual identity elements
-* Redesigned the Featured Projects section
-* Connected Featured Projects with database content
-* Added dynamic project image display
-* Improved project cards with:
-
-  * Glass card style
-  * Hover effects
-  * Image zoom animation
-  * Better spacing and visual hierarchy
-* Improved project navigation through dynamic project detail links
-
-Current Home Page Structure:
-
-Implemented:
-
-* Hero Section
-
-  * Developer introduction
-  * Professional badge
-  * Call-to-action buttons
-  * Technology showcase card
-
-* Featured Projects Section
-
-  * Dynamic project loading
-  * Project images
-  * Project descriptions
-  * Technology tags
-  * Project detail navigation
-
-## Upcoming Day 12 Improvements
-
-The next stage focuses on completing the professional landing page experience.
-
-Planned:
-
-### Home Page Expansion
-
-Adding:
-
-* Skills Preview section
-* Learning Journey Preview section
-* Certificates Preview section
-
-### Professional Footer
-
-Creating:
-
-* Custom footer layout
-* Navigation links
-* Developer identity section
-* Copyright information
-
-### Final UI Polish
-
-Improving:
-
-* Responsive design
-
-  * Mobile layouts
-  * Tablet layouts
-
-* Smooth animations
-
-  * Section entrance animations
-  * Enhanced hover interactions
-
-* Visual refinement:
-
-  * Spacing consistency
-  * Typography adjustments
-  * Color harmony
-  * Overall user experience
-
-# Project Development Status
-
-Current completed systems:
-
-✅ Django foundation
-✅ Portfolio pages
-✅ Project showcase system
-✅ Search and filtering system
-✅ Authentication system
-✅ Admin-only protection
-✅ Custom dashboard
-✅ CRUD management system
-✅ Blog structure
-✅ Professional CSS design system
-✅ Custom navigation system
-✅ Hero landing section
-✅ Featured projects redesign
-✅ Dynamic project images
-✅ Modern portfolio card system
-
-# Future Improvements
-
-Planned:
-
-* Personal profile image integration
-* Bilingual support
-* Language switcher
-* Signup system
-* Mobile navigation menu
-* Advanced dashboard UI
-* Security review
-* Performance optimization
-* SEO improvements
-* Deployment preparation
-* Production configuration
-
-# Project Goal
-
-Salar.dev represents my journey as a developer.
-
-The project is continuously improving through learning, testing, feedback, and real-world development practices.
-
-The goal is to create a professional developer platform that represents my skills, experiences, projects, and growth as a software developer.
-
-
-# Salar.dev
-
-Salar.dev is a personal developer portfolio platform built with Django.
-
-The goal of this project is to create a professional digital identity where I can showcase my skills, projects, learning journey, certificates, technical experiences, and development progress.
-
-This project was developed as the final project for **CS50 Web Programming with Python and JavaScript**.
 
 ---
 
-# Project Vision
+# Design and UI Development
 
-The main idea behind Salar.dev was to build more than a simple portfolio website.
+The design of Salar.dev was created with custom CSS.
 
-The project focuses on:
+I used:
 
-* Professional developer presentation
-* Clean and scalable Django architecture
-* Modern UI/UX design
-* Custom content management system
-* Real-world web development practices
-* Future expansion with advanced features
+- CSS Variables
+- Flexbox
+- CSS Grid
+- Media Queries
+- Custom animations
+- Responsive layouts
 
-Salar.dev represents my journey as a developer and continues to improve through learning, testing, feedback, and practical development.
+
+The goal was to create a modern developer portfolio experience instead of a basic template website.
+# Design Resources and Inspiration
+
+During the frontend development process, I researched many modern website designs and UI patterns to improve the quality of Salar.dev.
+
+I used **Uiverse.io** as a source of inspiration for some UI elements such as:
+
+- Buttons
+- Cards
+- Animations
+- Interactive components
+
+I studied how these components were built and adapted the ideas into my own design instead of directly copying complete sections.
+
+For dashboard icons, I used resources from **3dicons.so** to create a more modern and professional dashboard appearance.
+
+
+---
+
+# Learning Process and Research
+
+During the development of Salar.dev, I learned many parts of web development through independent research, practice, and problem solving.
+
+Instead of only following tutorials, I tried to understand each feature by building it, facing problems, searching for solutions, and improving the implementation.
+
+Whenever I faced a challenge, I used Google searches, documentation, technical articles, and examples from other developers to understand the concepts and find better solutions.
+
+For frontend development, especially CSS, I improved my skills by researching professional website designs, studying modern CSS techniques, and practicing:
+
+- Layout design
+- Responsive design
+- Animations
+- Components
+- Theme systems
+- Modern UI patterns
+
+
+For Django development, I learned by:
+
+- Reading Django documentation
+- Studying examples
+- Understanding models, views, templates, and forms
+- Testing different approaches
+- Debugging problems during development
+
+
+This process helped me move from simply writing code by following instructions to independently designing, developing, debugging, and improving a complete full-stack application.
+
 
 ---
 
 # Development Journey
 
-The project was developed step by step through multiple development phases.
+The development of Salar.dev was completed step by step.
 
-Each phase focused on learning, implementing, improving, and refining different parts of the application.
+## Phase 1 — Project Planning and Django Setup
 
----
+At the beginning, I planned the structure of the application and created the Django project.
 
-# Phase 1 — Project Foundation
+Tasks completed:
 
-## Initial Setup
+- Django project setup
+- Application structure design
+- Database planning
+- Static and media configuration
 
-The project started by creating the Django foundation.
 
-Implemented:
+## Phase 2 — Database and Backend Development
 
-* Django project configuration
-* Application structure
-* Static files configuration
-* Template system
-* Base layout creation
-* Database configuration
-* Initial models and application organization
+I designed the database structure and created the required Django models.
 
-Project structure was designed to support future scalability.
+Implemented models for:
 
----
+- Projects
+- Categories
+- Technologies
+- Skills
+- Certificates
+- Learning Journey
+- Blog system
+- User profiles
 
-# Phase 2 — Portfolio Core Development
 
-After creating the project foundation, the main portfolio sections were developed.
+I also created the required relationships between models and prepared the backend structure.
 
-## Home Page
 
-Created the main landing page including:
+## Phase 3 — Public Website Development
 
-* Developer introduction
-* Portfolio presentation structure
-* Featured content showcase
+I created the main portfolio pages:
 
----
+- Home
+- About
+- Projects
+- Skills
+- Certificates
+- Learning Journey
+- Blog
 
-## About Page
 
-Implemented:
+The pages were built dynamically using Django templates and database data.
 
-* Personal introduction
-* Developer background
-* Career information structure
 
----
+## Phase 4 — Custom Dashboard Development
 
-## Projects Section
+A custom dashboard was developed to manage the website content.
 
-Created a complete project showcase system.
+Features added:
 
-Features:
+- Dashboard statistics
+- Management cards
+- CRUD operations
+- Content editing system
 
-* Project listing
-* Project details page
-* Categories
-* Technologies
-* GitHub links
-* Demo links
-* Project images
-* Search functionality
-* Filtering system
 
----
+This allows the website owner to update content without changing the source code.
 
-## Skills Section
 
-Implemented skill management structure:
+## Phase 5 — Authentication and Profile System
 
-* Skill categories
-* Skill levels
-* Technology presentation
-* Dynamic skill display
+The authentication system was implemented.
 
----
+Added:
 
-## Learning Journey
+- Signup
+- Login
+- Logout
+- Profile model
+- Profile image upload
+- Profile editing page
 
-Created a learning timeline system.
 
-Including:
+Users can manage their personal information through the profile section.
 
-* Courses
-* Learning progress
-* Providers
-* Status tracking
-* Development journey presentation
 
----
+## Phase 6 — Frontend Polish and User Experience
 
-## Certificates
-
-Implemented certificate showcase:
-
-Features:
-
-* Certificate title
-* Provider
-* Date
-* Display ordering
-
----
-
-# Phase 3 — Authentication and Dashboard System
-
-The next stage focused on creating a private management system.
-
----
-
-# Authentication
+The final stage focused on improving the user interface.
 
 Implemented:
 
-* User login
-* Logout functionality
-* Authentication protection
-* Admin-only access
-
----
-
-# Custom Dashboard
-
-Created a custom dashboard instead of relying only on Django Admin.
-
-Dashboard features:
-
-* Project management
-* Skill management
-* Certificate management
-* Learning Journey management
-* Blog management
-* Statistics overview
-
----
-
-# CRUD Management
-
-Implemented custom CRUD operations.
-
-## Create
-
-* Add projects
-* Add skills
-* Add certificates
-* Add learning records
-* Add blog posts
-
-## Read
-
-* Display management lists
-
-## Update
-
-* Edit existing content
-
-## Delete
-
-* Remove content with confirmation pages
-
----
-
-# Phase 4 — Professional UI Development
-
-The frontend was redesigned to create a modern developer portfolio experience.
-
----
-
-# Design System
-
-Created a reusable CSS foundation.
-
-Implemented:
-
-* Design tokens
-* Color system
-* Typography system
-* Spacing system
-* Layout system
-* Responsive foundation
-
----
-
-# UI Components
-
-## Buttons
-
-Developed:
-
-* Primary buttons
-* Secondary buttons
-* Hover states
-* Interaction effects
-
----
-
-## Cards
-
-Implemented reusable card components:
-
-* Project cards
-* Skill cards
-* Certificate cards
-* Blog cards
-* Learning cards
-* Glass card style
-
----
-
-## Tags and Badges
-
-Used for:
-
-* Technologies
-* Categories
-* Status indicators
-* Learning progress
-
----
-
-# Navigation System
-
-Created a custom professional navbar.
-
-Features:
-
-* Modern rounded layout
-* Salar.dev branding
-* Authentication-based actions
-* Active states
-* Hover animations
-
----
-
-# Day 12 — Landing Page & UI Refinement
-
-The focus moved toward transforming Salar.dev into a professional developer landing page.
-
----
-
-## Completed Improvements
-
-### Hero Section
-
-Implemented:
-
-* Professional developer introduction
-* Developer badge
-* Call-to-action buttons
-* Technology showcase card
-* Glass UI presentation
-
----
-
-### Featured Projects Section
-
-Implemented:
-
-* Dynamic project loading
-* Database-connected project showcase
-* Project images
-* Project descriptions
-* Technology tags
-* Project detail navigation
-* Improved visual hierarchy
-* Hover effects
-* Image zoom interactions
-
----
-
-### Skills Preview Section
-
-Implemented:
-
-* Dynamic skill loading from database
-* Skill preview cards
-* Professional progress bars
-* Skill percentage visualization
-* Dynamic color levels:
-
-  * Low level
-  * Medium level
-  * High level
-
----
-
-### Learning Journey Preview Section
-
-Implemented:
-
-* Dynamic learning journey display
-
-* Learning cards
-
-* Progress status badges
-
-* Status colors:
-
-  * Completed
-  * Progress
-  * Planned
-
-* Timeline connector design
-
-* Improved portfolio storytelling
-
----
-
-# Current Home Page Structure
-
-The current landing page includes:
-
-```
-Hero Section
-        ↓
-Featured Projects
-        ↓
-Skills Preview
-        ↓
-Learning Journey Preview
-        ↓
-Footer (Upcoming)
-```
-
----
-
-# Current Development Status
-
-Completed systems:
-
-✅ Django foundation
-✅ Portfolio pages
-✅ Project showcase system
-✅ Search and filtering system
-✅ Authentication system
-✅ Admin-only protection
-✅ Custom dashboard
-✅ CRUD management system
-✅ Blog structure
-✅ Professional CSS design system
-✅ Custom navigation system
-✅ Hero landing section
-✅ Featured projects redesign
-✅ Dynamic project images
-✅ Modern portfolio card system
-✅ Skills Preview section
-✅ Learning Journey Preview section
-
----
-
-# Upcoming Improvements
-
-## Professional Footer
-
-Planned:
-
-* Custom footer layout
-* Developer identity section
-* Navigation links
-* Social links
-* Copyright information
-
----
-
-## Animation and Micro Interactions
-
-Planned:
-
-* Section entrance animations
-* Improved hover effects
-* Smooth transitions
-* Better user interactions
-
----
-
-## Future Features
-
-Planned:
-
-* Personal profile image integration
-* Bilingual support
-* Language switcher
-* Signup system
-* Mobile navigation menu
-* Advanced dashboard UI
-* Security review
-* Performance optimization
-* SEO improvements
-* Deployment preparation
-* Production configuration
-
----
-
-# Technologies Used
-
-## Backend
-
-* Python
-* Django
-
-## Frontend
-
-* HTML
-* CSS
-* JavaScript
-
-## Database
-
-* SQLite (Development)
-
-## Tools
-
-* Git
-* GitHub
-* VS Code
-
----
-
-# Project Goal
-
-Salar.dev is not only a portfolio website.
-
-It is a representation of my growth as a developer, including:
-
-* Skills
-* Projects
-* Learning journey
-* Certificates
-* Technical experiences
-
-The goal is to create a professional developer platform that represents my abilities, continuous learning process, and real-world software development experience.
-
-
-# Day 12 — Theme System & Core Experience
-
-The focus moved toward improving the user experience and completing the core frontend experience of Salar.dev.
-
-## Dark / Light Theme System
-
-Implemented a complete theme switching system.
-
-Features:
-
-* Custom Dark / Light mode toggle
-* Integration with existing `data-theme` system
-* Theme persistence using LocalStorage
-* Automatic theme restoration after refresh
-* Navbar theme switch integration
-* Smooth theme transition experience
-* Verified color compatibility in both themes
-
-
-## Professional Loading Experience
-
-Implemented a custom branded loading screen for Salar.dev.
-
-Features:
-
-* Developer-style terminal loader
-* Custom Salar.dev loading identity
-* Typing animation effect
-* Smooth fade-out transition
-* Loading state management using JavaScript
-* Theme-compatible loader design
-* Improved text readability and color contrast
-
-
-## Frontend Improvements
-
-Additional improvements:
-
-* Improved user first impression
-* Enhanced website interaction quality
-* Improved visual consistency between components
-* Prepared the foundation for future UX improvements
-
-
-## Current Progress
-
-Completed:
-
-✅ Dark / Light Theme System  
-✅ LocalStorage Theme Persistence  
-✅ Navbar Theme Integration  
-✅ Professional Loading Screen  
-✅ Loader Animations  
-✅ Theme Compatibility Review  
-
-
-Next Steps:
-
-* Search Box System
-* Error Pages
-* Full Website CSS Completion
-* Dashboard UI Improvements
-## 🚀 Development Progress
-
-### Phase 6 — Complete UI/CSS Styling (Completed) ✅
-
-During this phase, all main public pages were redesigned and upgraded from basic Django templates into a professional portfolio interface.
-
-### Completed Pages:
-
-#### ✅ Projects
-
-* Redesigned project listing page
-* Added professional project cards
-* Improved category display
-* Improved technology badges
-* Enhanced project detail page layout
-* Added hover effects and responsive structure
-
-#### ✅ About
-
-* Converted About page into a dynamic admin-controlled page
-* Added database-driven content management
-* Styled the page according to the Salar.dev design system
-
-#### ✅ Skills
-
-* Redesigned skills page
-* Added professional skill cards
-* Improved proficiency display
-* Added support for dynamic skill data from database
-
-#### ✅ Learning Journey
-
-* Redesigned learning timeline section
-* Added status badges
-* Improved learning path presentation
-* Connected with existing Django models
-
-#### ✅ Certificates
-
-* Created professional certificate showcase
-* Added certificate cards
-* Added image support
-* Added provider, date, description and certificate links
-* Improved certificate presentation
-
-#### ✅ Blog
-
-* Redesigned blog listing page
-* Added article cards
-* Added category and tag display
-* Added improved metadata layout
-* Redesigned blog detail page
-* Added article-focused layout with better readability
-
----
-
-## 🎨 UI Improvements
-
-Completed improvements:
-
-* Consistent card system across all pages
-* Dark/Light mode compatibility
-* Responsive layouts
-* Hover animations
-* Glass style components
-* Improved typography
-* Better spacing and page structure
-
----
-
-## 📌 Current Project Status
-
-Completed:
-
-* Backend structure
-* Database models
-* Admin management
-* Public portfolio pages
-* Complete public UI styling
-
-Next Phase:
-
-### Phase 7 — Dashboard & Authentication UI 🔜
-
-Planned:
-
-* Professional dashboard design
-* CRUD interface improvements
-* Login page redesign
-* Signup page redesign
-* Authentication UI integration
-
----
-
-**Salar.dev**
-Personal Developer Portfolio built with Django.
-
-# Salar.dev — Personal Developer Hub
-
-Salar.dev is a personal developer portfolio and content management platform built with Django.
-The goal of this project is to create a professional online identity where projects, skills, certificates, learning journey, and technical articles can be showcased in a modern and organized way.
-
-## 🚀 Features
-
-### 🌐 Public Website
-
-* Professional landing page
-* Hero section with personal introduction
-* Featured projects showcase
-* Skills overview with proficiency levels
-* Learning journey timeline
-* Certificates showcase
-* Blog system
-* Responsive design
-* Dark / Light mode support
-* Search interface
-* Custom error pages
-
----
-
-## 🛠 Dashboard Management
-
-Salar.dev includes a custom dashboard for managing website content.
-
-### Project Management
-
-* Create projects
-* Update projects
-* Delete projects
-* Manage project information and images
-
-### Skills Management
-
-* Create skills
-* Update skills
-* Delete skills
-* Organize skills by category
-
-### Certificates Management
-
-* Add certificates
-* Edit certificates
-* Delete certificates
-* Upload certificate images
-
-### Learning Journey Management
-
-* Add learning milestones
-* Update learning progress
-* Manage learning status
-
-### Blog Management
-
-* Create posts
-* Update posts
-* Delete posts
-* Manage categories and tags
-
----
-
-## 💻 Technologies
-
-### Backend
-
-* Python
-* Django
-
-### Frontend
-
-* HTML5
-* CSS3
-* JavaScript
-
-### Database
-
-* SQLite (Development)
-
-### Tools
-
-* Git & GitHub
-* VS Code
-
----
-
-## 🎨 Design
-
-The project uses a custom design system including:
-
-* Modern card-based UI
-* Glass effects
-* Custom buttons
-* Dark/Light theme system
-* Responsive layouts
-* Interactive hover effects
-* Professional dashboard components
-
----
-
-## 📂 Project Structure
-
-```
-Salar.dev/
-│
-├── config/
-│   └── Django configuration
-│
-├── core/
-│   └── Main application
-│
-├── templates/
-│   └── HTML templates
-│
-├── static/
-│   ├── CSS
-│   ├── JavaScript
-│   └── Assets
-│
-├── media/
-│   └── Uploaded files
-│
-└── manage.py
-```
-
----
-
-## 🎯 Project Goals
-
-Salar.dev was created to:
-
-* Build a professional developer portfolio
-* Practice full-stack web development with Django
-* Create a real-world content management system
-* Showcase programming projects and learning progress
-* Prepare a production-ready personal website
-
----
-
-## 📌 Current Status
-
-✅ Backend completed
-✅ Database models completed
-✅ Custom dashboard completed
-✅ CRUD operations completed
-✅ Main frontend pages completed
-✅ UI design system completed
-
-🚧 Remaining:
-
-* Authentication and profile system
-* Final responsive polish
-* Production deployment
-
----
-
-## 🔮 Future Plans
-
-* User profile customization
-* Online deployment
-* More interactive features
-* Additional blog improvements
-* Continuous design improvements
-
----
-
-## 👨‍💻 Author
-
-**Salar Rahimi**
-
-Developer interested in:
-
-* Python
-* Django
-* Web Development
-* Cyber Security
-* Artificial Intelligence
-
----
-
-## 📄 License
-
-This project is created for educational and portfolio purposes.
-## 🚀 Development Progress Update
-
-### Authentication & Profile System (Completed)
-
-Today, the authentication and user identity system of Salar.dev was improved and polished.
-
-### ✅ Completed Features
-
-#### 👤 Profile System
-- Created user profile system with Django model
-- Added profile page
-- Added profile editing functionality
-- Added profile image upload support
-- Added bio customization
-- Connected profile data with authenticated users
-
-#### 🔐 Authentication UI
-- Redesigned Login page with a modern developer-focused UI
-- Redesigned Signup page with the same visual system
-- Created reusable authentication card design
-- Added:
-  - Glassmorphism effect
-  - Gradient borders
-  - Modern input styling
-  - Animated buttons
-  - Dark/Light mode compatibility
-
-### 🎨 UI Improvements
-
-Updated authentication pages to match the Salar.dev design system:
-
-- Consistent card layouts
-- Modern spacing and typography
-- Gradient button system
-- Smooth hover interactions
-- Responsive structure
-
-### 🛠️ Technologies Used
-
-- Django
-- Python
-- HTML5
-- CSS3
-- Django Forms
-- SQLite
-- Custom Design System
-
----
-
-## 📌 Current Project Status
-
-Completed:
-- Core Django structure
-- Dynamic portfolio pages
-- Dashboard backend
-- Search system
+- Responsive design
+- Dark/light theme
+- Animations
+- Loading screen
+- Search improvements
 - Error pages
-- Dark/Light mode
-- Loading system
-- Profile system
-- Authentication UI
+- UI improvements
+- Mobile compatibility
 
-Next Phase:
-### Phase 7 — Dashboard UI Polish
 
-Planned:
-- Professional dashboard interface
-- Statistics cards
-- CRUD page styling
-- Form improvements
-- Admin experience improvements
+The final result is a complete personal developer platform with both backend management and a modern frontend experience.
+
+
+---
+
+# File Structure
+
+The main structure of the project:
+# Files and Their Purpose
+
+Important files and folders:
+
+- `manage.py`
+  - Django command-line utility used to manage the project.
+
+- `requirements.txt`
+  - Contains all Python packages required to run the project.
+
+- `settings.py`
+  - Contains Django configuration including:
+    - Installed applications
+    - Database settings
+    - Static files
+    - Media files
+    - Authentication settings
+
+- `urls.py`
+  - Handles the main URL routing of the project.
+
+- `models.py`
+  - Contains all database models including:
+    - Projects
+    - Skills
+    - Certificates
+    - Learning Journey
+    - Blog
+    - Profile
+
+- `views.py`
+  - Contains the application logic for:
+    - Public pages
+    - Dashboard
+    - Authentication
+    - Profile system
+    - Search system
+
+- `forms.py`
+  - Contains Django forms for:
+    - Signup
+    - Profile editing
+    - CRUD operations
+
+- `templates/`
+  - Contains all HTML templates.
+
+Important templates:
+
+- `base.html`
+  - Main layout shared between all pages.
+
+- `components/navbar.html`
+  - Website navigation.
+
+- Dashboard templates
+  - Management interface.
+
+- Account templates
+  - Login, signup, and profile pages.
+
+- Error templates
+  - 404, 403, and 500 pages.
+
+
+- `static/css/`
+  - Contains all custom styles:
+    - Layout
+    - Components
+    - Animations
+    - Responsive design
+    - Theme system
+
+
+- `static/js/`
+  - Contains JavaScript features:
+    - Theme switching
+    - UI interactions
+    - Animations
+
+
+- `static/images/`
+  - Contains website images and dashboard icons.
+
+
+- `media/`
+  - Stores uploaded user profile images.
+
+
+
+---
+
+# How to Run the Project
+
+1. Clone the repository:
